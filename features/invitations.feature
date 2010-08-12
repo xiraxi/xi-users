@@ -27,7 +27,8 @@ Feature: Invitations
             | "smith@example.com" profile   |
 
     Scenario: A user can only see their invitations
-        Given a session fot the user "john@example.com"
+        Given a session for the user "john@example.com"
         And a friend invitation from user "jane@example.com" to "john@example.com"
         When I open invitations page
         Then I see one "invitation" box
+        And the "invitation" box contains "jane@example.com"

@@ -43,7 +43,7 @@ Feature: Password administration
         Then user with email "foo@tal.com" has password "foo"
 
     Scenario Outline: Current password has to be valid
-        Given A session fot the user "john@example.com"
+        Given A session for the user "john@example.com"
         And a user with "email" set to "john@example.com" and "password" set to "foo"
         When I open comunity_prefs page
         And fill the form with:
