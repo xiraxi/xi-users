@@ -1,17 +1,17 @@
 
 Feature: Invitations
 
-    Scenario Outline: An anonymous user can not <action> invitations
+    Scenario Outline: An anonymous user can not manage invitations
         Given  an anonymous session
-        When I open <action_page> invitation page
+        When I open <action> invitation page
         Then I see the forbidden page
 
         Scenarios:
-            | action        | action_page   |
-            | create        | new           |
-            | list          | index         |
-            | accept        | accept        |
-            | decline       | decline       |
+            | action    |
+            | new       |
+            | index     |
+            | accept    |
+            | decline   |
 
     Scenario Outline: A user can not invite a friend
         Given a user exists with login: "john@example.com", password: "john"

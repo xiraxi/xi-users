@@ -2,7 +2,7 @@
 Feature: Users lists
 
     @last_registereds @last_accessed
-    Scenario Outline: List ordered by <order>
+    Scenario Outline: List order
         Given an anonymous session
         And the following users exists:
             | email             | <order_field> |
@@ -14,9 +14,9 @@ Feature: Users lists
             | jane@example.com  |
 
         Scenarios:
-            | order             | order_field       | page                      |
-            | Last registereds  | created_at        | profiles                  |
-            | Last accessed     | last_access_at    | profiles_last_accessed    |
+            | order_field       | page                      |
+            | created_at        | profiles                  |
+            | last_access_at    | profiles_last_accessed    |
 
     Scenario: Users connected within 30 minutes
         Given an anonymous session
@@ -29,7 +29,7 @@ Feature: Users lists
         Then the "profiles" box has this list:
             | jane@example.com  |
 
-    Scenario Outline: Users with prize <prize>
+    Scenario Outline: Users with determined prize
         Given an anonymous session
         And the following users exists:
             | email             | prize     |
