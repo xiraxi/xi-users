@@ -1,9 +1,9 @@
 
 Feature: activation pending users
 
-    Scenario Outline: Non-admin users can not access activation pending users index
+    Scenario Outline: Non-admin users can not access activation pending users
         Given <session> session
-        When I open index activation pending users page
+        When I open activation pending users page
         Then I the <content>
 
         Scenarios:
@@ -25,7 +25,7 @@ Feature: activation pending users
         Given an admin session
         And a user with email: "john@example.com", validated_at: nil, validate_key: 1234
         And a user with email: "jane@xample.com", validates_at: 01/01/1970, validate_key: nil
-        When I open index activation pending users page
+        When I open activation pending users page
         Then I see one "user" item
         And the "user" box contains "john@example.com"
 
@@ -34,7 +34,7 @@ Feature: activation pending users
         And a user with email: "john@example.com", validated_at: nil, validate_key: 1234
         When I open validate activation pending users page with email: "john@example.com"
         Then user with email: "john@example.com" is validated
-        And I see the index activation pending users page
+        And I see the activation pending users page
         And I see no "user" item
 
     Scenario Outline: Admin can not activate emails not in database
