@@ -23,10 +23,10 @@ Feature: User profiles
         When I open "jane@example.com" profile page
         Then the page not contains a box with id "admin_profile"
 
-    Scenario: Logged user can not add friend already added
+    Scenario: Logged user can not add contact already added
         Given a session for the user "john@example.com"
         And a user with email "jane@example.com"
-        And "john@example.com" is friend of "jane@example.com"
+        And "john@example.com" is contact of "jane@example.com"
         When I open "jane@example.com" profile page
         Then the page not contains link with class "invitation"
 
