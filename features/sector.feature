@@ -61,3 +61,25 @@ Feature: Sectors
         When I go to new sector page
         And I submit the "basic-crud" form
         Then these fields have errors: name, order
+
+    Scenario: unused sectors can be removed
+        Given an admin session
+        And the following sectors exist:
+            | name  |
+            | Red   |
+            | Blue  |
+        And a user exists with sector: "Blue"
+        When I go to sectors page
+        And I click on "Remove this sector" within "Red" sector box
+        Then the flash box contains "Departament has been removed."
+        And there are 1 sector instances with name: "Blue"
+
+    Scenario: used sectors can not be removed
+        Given an admin session
+        And a sector with name: "Main"
+        And a user exists with sector: "Main"
+        When I go to sectors page
+        And I click on "Remove this sector"
+        Then the flash box contains "Departament can not be removed because it is used by almost 1 user."
+        And a sector should exist with name: "Main"
+

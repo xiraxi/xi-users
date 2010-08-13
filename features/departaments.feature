@@ -61,3 +61,25 @@ Feature: Departaments
         When I go to new departament page
         And I submit the "basic-crud" form
         Then these fields have errors: name, order
+
+    Scenario: unused departaments can be removed
+        Given an admin session
+        And the following departaments exist:
+            | name  |
+            | Red   |
+            | Blue  |
+        And a user exists with departament: "Blue"
+        When I go to departaments page
+        And I click on "Remove this departament" within "Red" departament box
+        Then the flash box contains "Departament has been removed."
+        And there are 1 departament instances with name: "Blue"
+
+    Scenario: used departaments can not be removed
+        Given an admin session
+        And a departament with name: "Main"
+        And a user exists with departament: "Main"
+        When I go to departaments page
+        And I click on "Remove this departament"
+        Then the flash box contains "Departament can not be removed because it is used by almost 1 user."
+        And a departament should exist with name: "Main"
+
