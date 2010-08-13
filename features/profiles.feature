@@ -29,3 +29,10 @@ Feature: User profiles
         And "john@example.com" is friend of "jane@example.com"
         When I open "jane@example.com" profile page
         Then the page not contains link with class "invitation"
+
+    Scenario: When visiting profile, visit time is registered
+        Given a session for the user "john@example.com"
+        And a user with email "jane@example.com"
+        And "john@example.com" is contact of "jane@example.com"
+        When I open "jane@example.com" profile page
+        Then field "visited_at" of user with email: "jane@example.com" is actualized with actual time 
