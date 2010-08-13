@@ -18,6 +18,36 @@ Feature: Users lists
             | created_at        | profiles                  |
             | last_access_at    | profiles_last_accessed    |
 
+    @tags
+    Scenario: Users can be filtered by tags
+        Given an anonymous session
+        And the following users exists:
+            | email             | tags      |
+            | john@example.com  | foo, bar  |
+            | jane@example.com  | foo       |
+            | smith@example.com | bar       |
+        When I open profiles page
+        And I click in "foo" within the "tag-cloud" box
+        Then I see this users:
+            | john@example.com  |
+            | jane@example.com  |
+
+    @tags
+    Scenario: Profiles page shows tag cloud
+        Given: an anonymous session
+        And the following users exists:
+            | tags  |
+            | foo   |
+            | foo   |
+            | bar   |
+            | bar   |
+            | baz   |
+        When I go to profiles page
+        Then I see the  "tab-cloud" box with this links:
+            | foo   |
+            | bar   |
+            | baz   |
+
     Scenario: Users connected within 30 minutes
         Given an anonymous session
         And the following users exists:
