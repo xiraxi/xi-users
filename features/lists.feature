@@ -6,8 +6,8 @@ Feature: Users lists
         Given an anonymous session
         And the following users exists:
             | email             | <order_field> |
-            | john@example.com  | 01/01/1970    |
-            | jane@example.com  | 01/02/1970    |
+            | john@example.com  | 1970-01-01    |
+            | jane@example.com  | 1970-01-02    |
         When I open <page> page
         Then the "profiles" box has this list:
             | john@example.com  |

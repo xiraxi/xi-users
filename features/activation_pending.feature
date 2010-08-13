@@ -24,7 +24,7 @@ Feature: activation pending users
     Scenario: An admin can view activation pending users
         Given an admin session
         And a user with email: "john@example.com", validated_at: nil, validate_key: 1234
-        And a user with email: "jane@xample.com", validates_at: 01/01/1970, validate_key: nil
+        And a user with email: "jane@xample.com", validates_at: 1970-01-01, validate_key: nil
         When I open activation pending users page
         Then I see one "user" item
         And the "user" box contains "john@example.com"

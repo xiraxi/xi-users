@@ -44,7 +44,7 @@ Feature: User data modification
         And fill the "prefs" form with:
             | name              | John              |
             | surname           | Example           |
-            | born              | 01/01/1970        |
+            | born              | 1970-01-01        |
             | gender            | male              |
             | profession        | programmer        |
             | profile           | foo               |
