@@ -15,7 +15,7 @@ Feature: Departaments
     Scenario Outline: RD for departaments not available
         Given any session
         When I open <action>
-        Then I see the nor found page
+        Then I see the not found page
 
         Scenarios:
             | action    |
@@ -25,7 +25,7 @@ Feature: Departaments
     Scenario: Index shows "name" and "order"
         Given an admin session
         When I open index departaments page
-        Then the page contains this boxes within "crud-index":
+        Then the page contains these boxes within "crud-index":
             | id            |
             | item_name     |
             | item_order    |
@@ -39,7 +39,7 @@ Feature: Departaments
         And I submit the form
         Then I see the index departament page
         And the flash box contains "Successfully created"
-        And the page containd this boxes within "crud-index"
+        And the page contains these boxes within "crud-index"
             | name  | foo   |
             | order | 1     |
 
@@ -52,7 +52,7 @@ Feature: Departaments
             | order | 0     |
         Then I see the index departament page
         And the flash box contains "Successfully created"
-        And the page containd this boxes within "crud-index"
+        And the page contains these boxes within "crud-index"
             | name  | bar   |
             | order | 0     |
 

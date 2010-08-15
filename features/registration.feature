@@ -80,7 +80,7 @@ Feature: Registration in the web
         And validate_key is nil
         Then a 404 error is loaded
 
-    Scenario: When anonymous user confirm the registration, validate_key has to be in database
+    Scenario: When anonymous user confirms the registration, validate_key has to be in database
         Given an anonymous user
         When I open validate_register page
         And validate_key is "abcd"

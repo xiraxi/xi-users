@@ -4,7 +4,7 @@ Feature: Users lists
     @last_registereds @last_accessed
     Scenario Outline: List order
         Given an anonymous session
-        And the following users exists:
+        And the following users exist:
             | email             | <order_field> |
             | john@example.com  | 1970-01-01    |
             | jane@example.com  | 1970-01-02    |
@@ -21,7 +21,7 @@ Feature: Users lists
     @tags
     Scenario: Users can be filtered by tags
         Given an anonymous session
-        And the following users exists:
+        And the following users exist:
             | email             | tags      |
             | john@example.com  | foo, bar  |
             | jane@example.com  | foo       |
@@ -35,7 +35,7 @@ Feature: Users lists
     @tags
     Scenario: Profiles page shows tag cloud
         Given: an anonymous session
-        And the following users exists:
+        And the following users exist:
             | tags  |
             | foo   |
             | foo   |
@@ -50,7 +50,7 @@ Feature: Users lists
 
     Scenario: Users connected within 30 minutes
         Given an anonymous session
-        And the following users exists:
+        And the following users exist:
             | email             | last_acess_at     |
             | john@example.com  | 12:00             |
             | jane@example.com  | 12:10             |
@@ -61,7 +61,7 @@ Feature: Users lists
 
     Scenario Outline: Users with determined prize
         Given an anonymous session
-        And the following users exists:
+        And the following users exist:
             | email             | prize     |
             | john@example.com  | <prize>   |
             | jane@example.com  | nil       |

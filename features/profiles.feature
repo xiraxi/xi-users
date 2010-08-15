@@ -5,30 +5,30 @@ Feature: User profiles
         Given an anonymous user
         And a user with email: "john@example.com"
         When I open "john@example.com" profile page
-        Then the page not contains a box with class "user_actions"
+        Then the page does not contain a box with class "user_actions"
 
     Scenario: Logged user can not do actions to herself
         Given a session for the user "john@example.com"
         When I open "john@example.com" profile page
-        Then the page not contains a box with class "user_actions"
+        Then the page does not contain a box with class "user_actions"
 
     Scenario: Logged user can see admin_profile box
         Given a session for the user "john@example.com"
         When I open "john@example.com" profile page
         Then the page contains a box with id "admin_profile"
 
-    Scenario: Logged user can not admins others profile
+    Scenario: Logged user can not manage others profile
         Given a session for the user "john@example.com"
         And a user with email: "jane@example.com"
         When I open "jane@example.com" profile page
-        Then the page not contains a box with id "admin_profile"
+        Then the page does not contain a box with id "admin_profile"
 
     Scenario: Logged user can not add contact already added
         Given a session for the user "john@example.com"
         And a user with email "jane@example.com"
         And "john@example.com" is contact of "jane@example.com"
         When I open "jane@example.com" profile page
-        Then the page not contains link with class "invitation"
+        Then the page does not contain link with class "invitation"
 
     Scenario: When visiting profile, visit time is registered
         Given a session for the user "john@example.com"

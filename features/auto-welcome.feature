@@ -8,7 +8,7 @@ Feature: Auto-welcome
         Then a comment with text: "Welcome", user: "admin@xiraxi.com", father: "john@example.com" is created
 
     Scenario Outline: CRUD for auto-welcome only for admin
-        Given a not admin session
+        Given a non admin session
         When I open <action>
         Then I see the forbidden page
 

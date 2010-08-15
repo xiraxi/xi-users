@@ -19,7 +19,7 @@ Feature: Invitations
         And the users "john@example.com" and "smith@example.com" are contacts
         And a session logged to "john:john"
         When I go to <action> page
-        Then the page has no a "new contact" link withing "account actions" box
+        Then the page has no a "new contact" link within "account actions" box
 
         Scenarios:
             | action                        |
