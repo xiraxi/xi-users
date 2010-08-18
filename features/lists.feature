@@ -5,77 +5,41 @@ Feature: Users lists
     Scenario Outline: List order
         Given an anonymous session
         And the following users exist:
-            | email             | <order_field> |
-            | john@example.com  | 1970-01-01    |
-            | jane@example.com  | 1970-01-02    |
-        When I open <page> page
-        Then the "profiles" box has this list:
-            | john@example.com  |
-            | jane@example.com  |
+            | email            | name | <order>    |
+            | john@example.com | John | 1990-01-01 |
+            | jane@example.com | Jane | 1990-01-02 |
+        When I open the <page> page
+        Then the "profiles" box has these boxes in the same order:
+            | name | John  |
+            | name | Jane  |
 
         Scenarios:
-            | order_field       | page                      |
-            | created_at        | profiles                  |
-            | last_access_at    | profiles_last_accessed    |
-
-    @tags
-    Scenario: Users can be filtered by tags
-        Given an anonymous session
-        And the following users exist:
-            | email             | tags      |
-            | john@example.com  | foo, bar  |
-            | jane@example.com  | foo       |
-            | smith@example.com | bar       |
-        When I open profiles page
-        And I click in "foo" within the "tag-cloud" box
-        Then I see this users:
-            | john@example.com  |
-            | jane@example.com  |
-
-    @tags
-    Scenario: Profiles page shows tag cloud
-        Given: an anonymous session
-        And the following users exist:
-            | tags  |
-            | foo   |
-            | foo   |
-            | bar   |
-            | bar   |
-            | baz   |
-        When I go to profiles page
-        Then I see the  "tab-cloud" box with this links:
-            | foo   |
-            | bar   |
-            | baz   |
+            | order          | page          |
+            | created_at     | users         |
+            | last_access_at | recents users |
 
     Scenario: Users connected within 30 minutes
         Given an anonymous session
         And the following users exist:
-            | email             | last_acess_at     |
-            | john@example.com  | 12:00             |
-            | jane@example.com  | 12:10             |
-        And actual time is 12:35
-        When I open profiles_connected page
-        Then the "profiles" box has this list:
-            | jane@example.com  |
+            | email            | name | last_acess_at  |
+            | john@example.com | John | 35 minutes ago |
+            | jane@example.com | Jane | 25 minutes ago |
+        When I go to the connected users page
+        Then the "profiles" box does not contain "John"
+        And the "profiles" box contains "Jane"
 
-    Scenario Outline: Users with determined prize
+    Scenario: Every time the users log in its last acess timestamp is updated
         Given an anonymous session
         And the following users exist:
-            | email             | prize     |
-            | john@example.com  | <prize>   |
-            | jane@example.com  | nil       |
-        When I open profiles <prize> prize page
-        Then the "profiles" box has this list:
-            | john@example.com  |
-
-        Scenarios:
-            | prize             |
-            | entertainer       |
-            | blogger           |
-            | colaborator       |
-            | distinguished     |
-            | photographer      |
-            | oficial_member    |
-            | policeman         |
-            | popular           |
+            | email            | password | name | last_access_at |
+            | john@example.com | test     | John | 10 minutes ago |
+            | jane@example.com | test     | Jane | 1 day ago      |
+        When I go to the page login 
+        And I fill the form with:
+            | email     | jane@example.com |
+            | password  | test             |
+        And I submit the form
+        And I go to the connected users page
+        Then the "profiles" box has these boxes in the same order:
+            | name | Jane  |
+            | name | John  |

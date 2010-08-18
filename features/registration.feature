@@ -1,44 +1,39 @@
 
 Feature: Registration in the web
 
-    Scenario: An anonymous user can see the registration form
-        Given an anonymous user
-        When I open signup page
-        Then the page contains a form named "register"
-
     Scenario: A logged user can not see registration form
-        Given a session for the user "john@example.com"
-        When I open signup page
-        Then the profile of the logged user is loaded
+        Given a regular user session
+        When I go to the signup page
+        Then the current page is the logged user's profile
 
-    Scenario: An anonymous user see the reCaptcha in the second steps
+    Scenario: An anonymous user see the reCaptcha in the second step
         Given an anonymous user
-        When I open signup page
-        And fill the form with:
-            | email                     | dude@example.com |
-            | password                  | foobar           |
-            | password confirmation     | foobar           |
-            | name                      | Dude             |
-            | surname                   | Example          |
-            | acceptance                | checked          |
-        And submit the form
-        Then the page contains a box with id "recaptcha"
+        When I go to the signup page
+        And I fill the form with:
+            | email                 | dude@example.com |
+            | password              | foobar           |
+            | password confirmation | foobar           |
+            | name                  | Dude             |
+            | surname               | Example          |
+            | acceptance            | checked          |
+        And I submit the form
+        Then the page contains a "recaptcha" box 
 
     Scenario: Anonymous user has to check acceptance
         Given an anonymous user
-        When I open signup page
-        And fill the form with:
+        When I go to the signup page
+        And I fill the form with:
             | email                     | dude@example.com |
             | password                  | foobar           |
             | password confirmation     | foobar           |
             | name                      | Dude             |
             | surname                   | Example          |
-        And submit the form
+        And I submit the form
         Then the form field "acceptance" has an error
 
-    Scenario: Password and password confirmation has to be the same
+    Scenario: Password has to be confirmed
         Given an anonymous user
-        When I open signup page
+        When I go to the signup page
         And fill the form with:
             | email                     | dude@example.com |
             | password                  | foobar           |
@@ -50,15 +45,15 @@ Feature: Registration in the web
 
     Scenario Outline: Email address has to be valid and unique
         Given an anonymous session
-        And a user with "email" set to "john@example.com"
-        When I open signup page
-        And fill the form with:
+        And a user exists with email: "john@example.com"
+        When I go to the signup page
+        And I fill the form with:
             | email                     | <email>          |
             | password                  | foobar           |
             | password confirmation     | foobar           |
             | name                      | Dude             |
             | surname                   | Example          |
-        And submit the form
+        And I submit the form
         Then the form field "email" has an error
 
         Scenarios:
@@ -67,21 +62,20 @@ Feature: Registration in the web
             | foo@test          |
             | @cual.com         |
             | john@example.com  |
-
+            | john@eXAmple.com  |
+            | John@eXAmple.com  |
 
     Scenario: When anonymous user registers, a confirmation email is sent
         Given an anonymous user
-        When I complete registration
-        Then an email with subject "Confirmacion de registro" is sent
-
-    Scenario: When anonymous user confirm the registration, validate_key has to be present
-        Given an anonymous user
-        When I open validate_register page
-        And validate_key is nil
-        Then a 404 error is loaded
-
-    Scenario: When anonymous user confirms the registration, validate_key has to be in database
-        Given an anonymous user
-        When I open validate_register page
-        And validate_key is "abcd"
-        Then a 404 error is loaded
+        When I go to the signup page
+        And I fill the form with:
+            | email                 | dude@example.com |
+            | password              | foobar           |
+            | password confirmation | foobar           |
+            | name                  | Dude             |
+            | surname               | Example          |
+            | acceptance            | checked          |
+        And I submit the form
+        And I force the reCaptcha to be valid
+        Then the flash box contains "An email was sent to confirm your address."
+        And an email was sent with subject: "Account validation"
