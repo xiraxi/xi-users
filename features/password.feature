@@ -5,7 +5,7 @@ Feature: Password management
         Given an anonymous user
         And a user exists with email: "john@example.com"
         When I open the reset password page
-        And I fill the form with:
+        And I fill in the following:
             | email | john@example.com |
         And I submit the form
         Then the flash box contains "An email was sent to john@example.com with instructions to reset your password"
@@ -21,7 +21,7 @@ Feature: Password management
         Given a user exists with email: "john@example.com", password: "foo"
         And a session for the user "john@example.com"
         When I open the change password page
-        And fill the form with:
+        And I fill in the following:
             | current password      | <current> |
             | password              | <first>   |
             | password confirmation | <second>  |

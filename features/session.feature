@@ -15,7 +15,7 @@ Feature: User session management
         Given an anonymous session
         And a user exists with email: "john@example.com", password: "foo"
         When I go to the login page
-        And I fill the form with:
+        And I fill in the following:
             | email     | <email>       |
             | password  | <password>    |
         And I submit the form

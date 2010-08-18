@@ -10,6 +10,7 @@ PATH
       acts-as-taggable-on
       asset-pocket
       friendly_id
+      haml
       http_accept_language
       paperclip
 
@@ -83,6 +84,7 @@ GEM
       babosa (>= 0.1.0)
     gherkin (2.1.5)
       trollop (~> 1.16.2)
+    haml (3.0.14)
     http_accept_language (1.0.1)
     i18n (0.4.1)
     johnson (2.0.0.pre3)

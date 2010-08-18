@@ -1,0 +1,66 @@
+- content_for :page_title, t("session.login.title")
+
+#main
+  %h1
+    = t("session.login.title")
+  = form_tag login_path, :id => "login-form" do
+    %fieldset
+      %legend
+        Login
+      %ul
+        %li
+          %label{:for => "username"}
+            Alias
+          %input{:id => "username", :type => "text", :name => "usuario_login", :value => "Nombre de usuario"}
+        %li
+          %label{:for => "password"}
+            Clave
+          %input{:id => "password", :type => "password", :name => "usuario_password"}
+          
+      %div.login-endless
+        %label{:for => "login-endless"}
+          Recordar en este ordenador
+        %input{:type => "checkbox", :id => "login-endless", :value => "1", :name => "endless"}
+      %div.forgot-password
+        %a{:href => "/test/reset_password"}
+          ¿Olvidaste tu contraseña?
+
+      %div.buttons
+        %button.ok-button{:type => "submit"}
+          Entrar
+
+        
+      
+
+#secondary-bar.sidebar
+
+  %div.box
+    %h2 Ranking
+    %div.content 
+      %div.resource-ranking
+        %ol
+          %li 
+            = image_tag "rank_4stars.png"
+            Museo del Prado
+            %div.section
+              en 
+              %a{:href => "recursos_museos"}
+                Museos
+          %li 
+            = image_tag "rank_4stars.png"
+            El Musical
+            %div.section
+              en 
+              %a{:href => "recursos_espectaculos"}
+                Espectáculos
+          %li 
+            = image_tag "rank_4stars.png"
+            Museo del Prado
+            %div.section
+              en 
+              %a{:href => "recursos_museos"}
+                Museos
+        %div.read-more
+          %a{:href => "news"}
+            Ver más recursos
+ 

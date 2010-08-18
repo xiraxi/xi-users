@@ -35,7 +35,7 @@ Feature: Users lists
             | john@example.com | test     | John | 10 minutes ago |
             | jane@example.com | test     | Jane | 1 day ago      |
         When I go to the page login 
-        And I fill the form with:
+        And I fill in the following:
             | email     | jane@example.com |
             | password  | test             |
         And I submit the form

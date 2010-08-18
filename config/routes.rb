@@ -1,4 +1,9 @@
 XiUsers::Application.routes.draw do
+
+  resources :users
+
+  match 'login' => 'session#login', :as => :login
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -9,7 +9,7 @@ Feature: Registration in the web
     Scenario: An anonymous user see the reCaptcha in the second step
         Given an anonymous user
         When I go to the signup page
-        And I fill the form with:
+        And I fill in the following:
             | email                 | dude@example.com |
             | password              | foobar           |
             | password confirmation | foobar           |
@@ -22,7 +22,7 @@ Feature: Registration in the web
     Scenario: Anonymous user has to check acceptance
         Given an anonymous user
         When I go to the signup page
-        And I fill the form with:
+        And I fill in the following:
             | email                     | dude@example.com |
             | password                  | foobar           |
             | password confirmation     | foobar           |
@@ -34,7 +34,7 @@ Feature: Registration in the web
     Scenario: Password has to be confirmed
         Given an anonymous user
         When I go to the signup page
-        And fill the form with:
+        And I fill in the following:
             | email                     | dude@example.com |
             | password                  | foobar           |
             | password confirmation     | foOBAr           |
@@ -47,7 +47,7 @@ Feature: Registration in the web
         Given an anonymous session
         And a user exists with email: "john@example.com"
         When I go to the signup page
-        And I fill the form with:
+        And I fill in the following:
             | email                     | <email>          |
             | password                  | foobar           |
             | password confirmation     | foobar           |
@@ -68,7 +68,7 @@ Feature: Registration in the web
     Scenario: When anonymous user registers, a confirmation email is sent
         Given an anonymous user
         When I go to the signup page
-        And I fill the form with:
+        And I fill in the following:
             | email                 | dude@example.com |
             | password              | foobar           |
             | password confirmation | foobar           |
