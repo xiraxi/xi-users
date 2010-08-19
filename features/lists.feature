@@ -8,7 +8,7 @@ Feature: Users lists
             | email            | name | <order>    |
             | john@example.com | John | 1990-01-01 |
             | jane@example.com | Jane | 1990-01-02 |
-        When I open the <page> page
+        When I go to the <page> page
         Then the "profiles" box has these boxes in the same order:
             | name | John  |
             | name | Jane  |

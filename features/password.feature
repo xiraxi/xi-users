@@ -2,7 +2,7 @@
 Feature: Password management
 
     Scenario Outline: Anonymous user can request a reset password
-        Given an anonymous user
+        Given an anonymous session
         And a user exists with email: "john@example.com"
         When I go to the reset password page
         And I fill in the following:

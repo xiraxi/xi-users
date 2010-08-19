@@ -7,7 +7,7 @@ Feature: Registration in the web
         Then the current page is the logged user's profile
 
     Scenario: An anonymous user see the reCaptcha in the second step
-        Given an anonymous user
+        Given an anonymous session
         When I go to the signup page
         And I fill in the following:
             | email                 | dude@example.com |
@@ -17,10 +17,10 @@ Feature: Registration in the web
             | surname               | Example          |
             | acceptance            | checked          |
         And I submit the form
-        Then the page contains a "recaptcha" box 
+        Then the page contains the "recaptcha" box
 
     Scenario: Anonymous user has to check acceptance
-        Given an anonymous user
+        Given an anonymous session
         When I go to the signup page
         And I fill in the following:
             | email                     | dude@example.com |
@@ -32,7 +32,7 @@ Feature: Registration in the web
         Then the form field "acceptance" has an error
 
     Scenario: Password has to be confirmed
-        Given an anonymous user
+        Given an anonymous session
         When I go to the signup page
         And I fill in the following:
             | email                     | dude@example.com |
@@ -40,7 +40,7 @@ Feature: Registration in the web
             | password confirmation     | foOBAr           |
             | name                      | Dude             |
             | surname                   | Example          |
-        And submit the form
+        And I submit the form
         Then the form field "password confirmation" has an error
 
     Scenario Outline: Email address has to be valid and unique
@@ -66,7 +66,7 @@ Feature: Registration in the web
             | John@eXAmple.com  |
 
     Scenario: When anonymous user registers, a confirmation email is sent
-        Given an anonymous user
+        Given an anonymous session
         When I go to the signup page
         And I fill in the following:
             | email                 | dude@example.com |
