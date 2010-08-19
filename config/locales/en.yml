@@ -17,7 +17,6 @@ en:
       label: "Email"
       create: "Grant admin role."
 
-
   activerecord:
     attributes:
       user_session:

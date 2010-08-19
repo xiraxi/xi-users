@@ -1,0 +1,8 @@
+
+
+en:
+  recaptcha:
+    errors:
+      "incorrect-captcha-sol": "Incorrect solution."
+      "recaptcha-not-reachable": "reCaptcha is not available."
+

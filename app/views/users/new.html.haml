@@ -1,0 +1,49 @@
+- content_for :page_title, t("users.new.title")
+
+%h1
+  = t("users.new.title")
+
+= form_for :user, :html => {:id => "signup_form"}, :url => {:action => :create} do |form|
+  %fieldset
+    %legend 
+      = t("users.new.form.title")
+    = error_messages_for :user
+    %ul
+      %li 
+        = form.label :email
+        = form.text_field :email
+      %li
+        = form.label :password
+        = form.password_field :password
+      %li
+        = form.label :password_confirmation
+        = form.password_field :password_confirmation   
+      %li
+        = form.label :name
+        = form.text_field :name   
+      %li
+        = form.label :surname
+        = form.text_field :surname   
+    %fieldset
+      %legend 
+        = t("users.new.form.terms_of_use.title")
+      %div.terms_of_use
+        %p
+          = t("users.new.form.terms_of_use.content")
+    = form.check_box :terms_of_use
+    = form.label :terms_of_use
+    = buttons_bar do
+      = button_ok
+      = button_cancel(users_path)
+
+- content_for :secondary_bar do
+  %div.box.signup-help
+    %h2 
+      = t("users.new.form.registration_help.title")
+    %div.content
+      %p
+        = t("users.new.form.registration_help.content1")
+      %p.important
+        = t("users.new.form.registration_help.content2")
+      %p.important
+        = t("users.new.form.registration_help.content3")

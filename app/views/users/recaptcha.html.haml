@@ -1,0 +1,27 @@
+- content_for :page_title, t("users.recaptcha.title")
+
+%h1
+  = t("users.recaptcha.title")
+
+- if flash[:recaptcha_error]
+  .error
+    = t flash[:recaptcha_error], :scope => "recaptcha.errors"
+
+= form_for :user, :html => {:id => "recaptcha_form"} do |form|
+  %fieldset
+    %legend 
+      = t("users.recaptcha.form.title")
+    = raw recaptcha_tags(:public_key => Rails.application.config.xi_users.recaptcha.public_key)
+    = hidden_field_tag :validated_attributes, @validated_attributes
+
+    = buttons_bar do
+      = button_ok
+      = button_cancel(users_path)
+
+- content_for :secondary_bar do
+  %div.box.signup-help
+    %h2 
+      = t("users.recaptcha.form.registration_help.title")
+    %div.content
+      %p.important
+        = t("users.recaptcha.form.registration_help.content")

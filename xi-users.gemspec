@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.files = %w(app config db lib public rails tasks test).map {|dir| Dir["#{dir}/*", "#{dir}/**/*" ] }.flatten
 
   #s.add_dependency "authlogic"
+  s.add_dependency "recaptcha"
 end

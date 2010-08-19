@@ -31,7 +31,7 @@ Given /^a regular user session$/ do
 end
 
 Then /^the current page is the logged user's profile$/ do
-  current_path == user_profile_path
+  current_path.should eql(user_profile_path)
 end
 
 Then /^the session is empty$/ do

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   acts_as_authentic
 
+  validates :terms_of_use, :acceptance => true
+
   module Gender
     Male = "male"
     Female = "female"

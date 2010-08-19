@@ -1,0 +1,42 @@
+
+en:
+
+  users:
+    new:
+      title: "New user"
+      form:
+        title: "User Register"
+        terms_of_use:
+          title: "Terms of use"
+          content: "The user accepts to grant all rights to reproduce, distribute, transform and communicate all content published on this site and authorizes its use by any third party.
+
+The user publishing content (photos, videos, reviews and other text elements) assures that he/she is the owner and has the copyright off everything published, therefore will not be responsible for any legal complaints based on any actions against this statement.
+
+When su publish your content on this webspace, the user accepts the following clauses:
+- The site administrators will decide about the content suitability to this site and will be granted all rights to adapt, fragment all content to the system´s requirements.
+- We will not accept any content which will go againt the following principles: honor rights, privacy, discrimination or any other personal or social circumstance. 
+- The user states and assures that:
+1. He/she is over 18 years old. 2. That his/her personal information is correct and it can be verified. 3. That he/she are the owners off all content published on thw web. 4. That in the case of uploading personal photos or videos, all have been produced with all participants consent and that all of them are over 18 years old. "
+
+        registration_help:
+          title: "Registration help"
+          content1: "Please, fill in this form to begin with the registration. Once you have been registered we will send you an email in order to confirm your account and go on with the load process"
+          content2: "All fields are required"
+
+    recaptcha:
+      title: "New user validation"
+      form:
+        title: "User register validation"
+        registration_help:
+          title: "Registration help"
+          content: "It is necessary to fill reCAPTCHA validation field to verify your registration. ReCAPTCHA validation field is the dark red box. In this box there are some letters that you should type in the text field. This is a safety measure to avoid robots to create accounts for fraudulent purposes."
+
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        name: Name
+        surname: Surname
+        terms_of_use: "I have read the terms and I accept them" 
