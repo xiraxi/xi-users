@@ -3,19 +3,17 @@
 #main
   %h1
     = t("session.login.title")
-  = form_tag login_path, :id => "login-form" do
+  = form_for :user_session, :html => { :id => "login-form" }, :url => user_sessions_path do |form|
     %fieldset
       %legend
-        Login
+        = t("session.login.form.title")
       %ul
         %li
-          %label{:for => "username"}
-            Alias
-          %input{:id => "username", :type => "text", :name => "usuario_login", :value => "Nombre de usuario"}
+          = form.label :email
+          = form.text_field :email
         %li
-          %label{:for => "password"}
-            Clave
-          %input{:id => "password", :type => "password", :name => "usuario_password"}
+          = form.label :password
+          = form.text_field :password
           
       %div.login-endless
         %label{:for => "login-endless"}
@@ -29,8 +27,6 @@
         %button.ok-button{:type => "submit"}
           Entrar
 
-        
-      
 
 #secondary-bar.sidebar
 

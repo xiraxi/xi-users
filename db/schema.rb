@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(:version => 20100818011212) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "password"
     t.string   "role"
     t.string   "name"
     t.string   "surname"
@@ -26,7 +25,17 @@ ActiveRecord::Schema.define(:version => 20100818011212) do
     t.string   "skype"
     t.string   "web"
     t.datetime "validated_at"
-    t.datetime "validate_key"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "perishable_token"
+    t.integer  "login_count",        :default => 0, :null => false
+    t.integer  "failed_login_count", :default => 0, :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

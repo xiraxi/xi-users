@@ -1,4 +1,19 @@
 en:
-    session:
-        login:
-            title: "Log in"
+  session:
+    login:
+      title: "Log in"
+      welcome_back: "Logged in. Welcome back!"
+      invalid: "Invalid credentials."
+
+  administrators:
+    title: Administrators management
+    remove_user: "Revoke admin grant for %{email}"
+    admin_granted: "Added %{email} as an administrator"
+
+    unknown_admin: Unknown admin.
+    admin_removed: Revoked admin grant.
+
+    new:
+      label: "Email"
+      create: "Grant admin role."
+

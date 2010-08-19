@@ -4,7 +4,7 @@ Feature: Password management
     Scenario Outline: Anonymous user can request a reset password
         Given an anonymous user
         And a user exists with email: "john@example.com"
-        When I open the reset password page
+        When I go to the reset password page
         And I fill in the following:
             | email | john@example.com |
         And I submit the form
@@ -13,19 +13,19 @@ Feature: Password management
 
     Scenario: Password change confirmation
         Given a user exists with email: "john@example.com"
-        And a password change request exists with key: "1234", new password: "foo", user: "john@example.com"
+        And a password change request exists with key: "1234", new password: "test.one", user: "john@example.com"
         When I go to the password change page with key: "1234"
         Then a user should exist with email: "john@example.com", password: "foo"
 
     Scenario Outline: When change the password the user has to confirm the change with the current password
-        Given a user exists with email: "john@example.com", password: "foo"
+        Given a user exists with email: "john@example.com", password: "test.one"
         And a session for the user "john@example.com"
-        When I open the change password page
+        When I go to the change password page
         And I fill in the following:
             | current password      | <current> |
             | password              | <first>   |
             | password confirmation | <second>  |
-        And submit the form
+        And I submit the form
         Then the flash box contains "Invalid"
 
         Scenarios:

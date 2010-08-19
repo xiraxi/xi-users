@@ -28,13 +28,17 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 #   gem 'webrat'
 # end
 
+gem 'authlogic', :git => 'git://github.com/scrum8/authlogic.git'
+
 gem "xiraxi-core", :path => "../xiraxi-core/"
 gemspec
 
 group :development, :test do
   gem "rspec"
   gem "cucumber-rails"
-  gem "capybara-envjs"
+  gem 'capybara-envjs', :require => 'capybara/envjs'
   gem "factory_girl_rails"
   gem "pickle"
+  gem "ruby-debug"
+  gem "database_cleaner"
 end

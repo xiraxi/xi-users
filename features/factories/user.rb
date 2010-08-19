@@ -6,6 +6,7 @@ Factory.define :user do |u|
     u.email { Factory.next :user_email }
     u.name "Generated"
     u.password "test.pw"
+    u.password_confirmation {|newuser| newuser.password }
     u.surname "Surname"
     u.profile "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     u.born Date.new(1980, 01, 01)
@@ -17,4 +18,14 @@ Factory.define :user do |u|
     #u.gtalk
     #u.skype
     #u.web
+end
+
+User.class_eval do
+  def admin=(v)
+    self.role = v ? User::Role::Admin : User::Role::Regular
+  end
+
+  def admin
+    admin?
+  end
 end

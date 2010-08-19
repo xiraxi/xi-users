@@ -8,4 +8,6 @@ Gem::Specification.new do |s|
   s.homepage = "http://xiraxi.foton.es"
   s.description = s.summary
   s.files = %w(app config db lib public rails tasks test).map {|dir| Dir["#{dir}/*", "#{dir}/**/*" ] }.flatten
+
+  #s.add_dependency "authlogic"
 end
