@@ -17,3 +17,10 @@ en:
       label: "Email"
       create: "Grant admin role."
 
+
+  activerecord:
+    attributes:
+      user_session:
+        email: Email
+        password: Password
+        remember_me: "Remember me on this computer"

@@ -9,16 +9,16 @@
         = t("session.login.form.title")
       %ul
         %li
-          = form.label :email
+          = form.label :email, t("activerecord.attributes.user_session.email")
           = form.text_field :email
         %li
-          = form.label :password
+          = form.label :password, t("activerecord.attributes.user_session.password")
           = form.text_field :password
           
       %div.login-endless
-        %label{:for => "login-endless"}
-          Recordar en este ordenador
-        %input{:type => "checkbox", :id => "login-endless", :value => "1", :name => "endless"}
+        = form.label :remember_me, t("activerecord.attributes.user_session.remember_me")
+        = form.check_box :remember_me
+
       %div.forgot-password
         %a{:href => "/test/reset_password"}
           ¿Olvidaste tu contraseña?
@@ -27,36 +27,3 @@
         %button.ok-button{:type => "submit"}
           Entrar
 
-
-#secondary-bar.sidebar
-
-  %div.box
-    %h2 Ranking
-    %div.content 
-      %div.resource-ranking
-        %ol
-          %li 
-            = image_tag "rank_4stars.png"
-            Museo del Prado
-            %div.section
-              en 
-              %a{:href => "recursos_museos"}
-                Museos
-          %li 
-            = image_tag "rank_4stars.png"
-            El Musical
-            %div.section
-              en 
-              %a{:href => "recursos_espectaculos"}
-                Espectáculos
-          %li 
-            = image_tag "rank_4stars.png"
-            Museo del Prado
-            %div.section
-              en 
-              %a{:href => "recursos_museos"}
-                Museos
-        %div.read-more
-          %a{:href => "news"}
-            Ver más recursos
- 

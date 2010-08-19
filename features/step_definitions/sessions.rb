@@ -35,7 +35,7 @@ Then /^the current page is the logged user's profile$/ do
 end
 
 Then /^the session is empty$/ do
-  cookies.to_hash.should be_empty
+  cookie_jar.to_hash.should be_empty
 end
 
 Given /^an admin session$/ do
@@ -45,4 +45,13 @@ Given /^an admin session$/ do
   fill_in("Email", :with => user.email)
   fill_in("Password", :with => "test.pw")
   submit_form("login form")
+end
+
+When /^I close the browser$/ do
+  # Remove session cookies
+  cookie_jar.each do |cookie|
+    if cookie.expires.nil?
+      cookie_jar.delete cookie.name
+    end
+  end
 end
