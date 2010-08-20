@@ -1,0 +1,119 @@
+- content_for :page_title, t("user.profile.page_title")
+
+#main
+  %h1
+    = t("user.profile.title", :username => @user.complete_name)
+  %div.profile-intro
+    %dl
+      %dt 
+        = field_label(User, :name)
+      %dd 
+        = @user.name
+      %dt
+        = field_label(User, :surname)
+      %dd
+        = @user.surname
+    %div.signup-date
+      = t("user.profile.validated_at", :date => l(@user.validated_at, :format => :long))
+    %div.about
+      %p 
+        = @user.about
+
+  %h2
+    = t("user.profile.personal_data")
+  %dl.data.profile-data
+    %dt
+      = field_label(User, :birth_date)
+    %dd
+      = l(@user.birth_date, :format => :long) unless @user.birth_date.nil?
+    %dt
+      = field_label(User, :gender)
+    %dd
+      = @user.gender
+    %dt
+      = field_label(User, :city)
+    %dd
+      = @user.city
+    %dt
+      = field_label(User, :postcode)
+    %dd
+      = @user.postcode
+    %dt
+      = field_label(User, :country)
+    %dd
+      = @user.country
+    %dt
+      = field_label(User, :hobbies)
+    %dd
+      = @user.hobbies
+    %dt
+      = field_label(User, :email)
+    %dd
+      = @user.email
+    %dt
+      = field_label(User, :gtalk)
+    %dd
+      = @user.gtalk
+    %dt
+      = field_label(User, :skype)
+    %dd
+      = @user.skype
+    %dt
+      = field_label(User, :website)
+    %dd 
+      = link_to(@user.website, @user.website) unless @user.website.blank?
+ 
+
+#secondary-bar.sidebar
+  %div.box.profile-box
+    %h2 Mi perfil
+    %div.content
+      = image_tag "user_avatar_m.png"
+      Tirso Maldonado
+      %a{:href => "profile/edit"}
+        Cambiar foto
+        /se cambia en la vista de editar datos personales
+  %div.box.manage-box
+    %h2 Gestión mi Perfil
+    %div.content
+      %ul
+        / En este caso dijimos de no poner clases para iconitos; pero en otras webs las querrán; los dejo por ser caso general
+        %li.community-data 
+          %a{:href => "opcion"} 
+            Datos comunidad
+        %li.user-data
+          %a{:href => "opcion"} 
+            Datos personales
+        %li.invitations
+          %a{:href => "opcion"} 
+            Invitaciones
+        %li.public-profile
+          %a{:href => "opcion"} 
+            Perfil público
+  %div.box.contacts-box
+    %h2 Mis amigos
+    %div.content
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"
+      %a{:href => "user/profile"}
+        = image_tag "user_avatar.png"

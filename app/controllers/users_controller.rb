@@ -97,4 +97,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    begin
+      @user = User.valid.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      return not_found
+    end
+    render :template => "users/profile"
+  end
+
 end
