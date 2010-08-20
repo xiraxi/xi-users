@@ -1,0 +1,69 @@
+
+es:
+
+  users:
+    new:
+      title: "Nuevo usuario"
+      form:
+        title: "Registro de usuario"
+        terms_of_use:
+          title: "Aviso legal"
+          content: "El usuario acepta ceder a título gratuito a esta web los derechos de reproducción, distribución, transformación y comunicación pública, en todas las posibles modalidades, de la obra que envía, para todo el mundo y por la duración máxima actualmente prevista en la ley para la protección de los derechos cedidos y con facultad de cesión a terceros.
+          El usuario que remite la obra (que podrá estar constituida por texto, audio, fotografías y/o obras audiovisuales) garantiza ser titular de los derechos de propiedad intelectual que por virtud de este contrato cede y, por tanto, mantendrá indemne a esta web frente a cualquier reclamación de terceros derivada del incumplimiento de la citada garantía.
+          Al enviar su obra a esta sección, el usuario acepta el contenido de las siguientes cláusulas:
+          - Esta web decidirá sobre la idoneidad de la obra a efectos de su publicación y podrán adaptarla tecnológicamente, fragmentarla y adecuarla al formato idóneo para su publicación.
+          - En ningún caso se aceptarán obras que afecten a los siguientes principios: derecho al honor, a la intimidad personal y familiar y a la propia imagen, respeto a la dignidad de la persona, principio de no discriminación por motivos de raza, sexo, religión, opinión, nacionalidad, discapacidad o cualquier otra circunstancia personal o social, así como otros principios que puedan resultar vulnerados.
+          - El usuario declara, asegura y confirma a esta web:
+          1. Que es mayor de 18 años. 2. Que sus datos identificativos son ciertos y verificables. 3. Que él es el autor material de la obra que envía, que es original y no la ha plagiado o usurpado de terceros. 4. Que, en el caso de enviar fotografías, audios o vídeos de personas, éstos han sido elaborados con el consentimiento de las personas que aparecen en ellos y que éstas personas son mayores de edad y dan su consentimiento y aceptan las consecuencias del envío.
+          En consecuencia, el usuario se hace responsable de esas manifestaciones y, en consecuencia, mantendrá indemne a esta web por el incumplimiento de las citadas garantías."
+        registration_help:
+          title: "Ayuda para registrarse"
+          content1: "Por favor, rellena este formulario para iniciar el proceso de registro. Cuando te registres te enviaremos un email a la dirección que nos indiques para confirmar tu cuenta y continuar con el proceso de carga."
+          content2: "Todos los campos son obligatorios."
+
+    change_email:
+      title: Cambio de email
+
+      notice_saved: Se ha enviado un email para validarlo.
+
+      validated: "La dirección ha sido validada. Tu nuevo email es %{email}"
+      not_validated: "La dirección propuesta no es válida para su email"
+
+      section:
+        title: Nuevo email
+        help: Introduce la dirección que deseas usar. Se enviará un email para validarla.
+
+    gender:
+      male: Masculino
+      female: Femenino
+
+    profiles:
+      page_title: Gente
+      title: Gente
+
+    change_password:
+      title: "Cambiar contraseña"
+      section:
+        title: "Cambiar contraseña"
+
+    reset_password:
+      title: "Contraseña olvidada"
+      section:
+        title: "Contraseña olvidada"
+
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        password: Contraseña
+        password_confirmation: Confirmar contraseña
+        name: Nombre
+        surname: Apellidos
+        terms_of_use: "He leído y acepto las condiciones de uso" 
+
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              invalid_password: "contraseña incorrecta"

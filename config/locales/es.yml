@@ -1,0 +1,36 @@
+es:
+  session:
+    login:
+      title: "Acceso"
+      welcome_back: "Conectado. ¡Bienvenido!"
+      invalid: "Las credenciales indicadas no son válidas."
+      form:
+        title: Acceso
+        forgot_password: "¿Olvidaste tu contraseña?"
+
+  account_settings:
+    title: Configuración de la cuenta
+
+    main_data:
+      title: Datos principales
+
+    notice_saved: "Sus datos han sido actualizados"
+
+  administrators:
+    title: Gestión de administradores
+    remove_user: "Quitar permisos de administrador a %{email}"
+    admin_granted: "Se ha añadido %{email} como administrador"
+
+    unknown_admin: Administrador desconocido.
+    admin_removed: Eliminado permiso de administrador.
+
+    new:
+      label: "Email"
+      create: "Conceder rol administrador."
+
+  activerecord:
+    attributes:
+      user_session:
+        email: Email
+        password: Contraseña
+        remember_me: "Recordarme en este ordenador"

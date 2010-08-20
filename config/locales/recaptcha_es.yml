@@ -1,0 +1,13 @@
+
+es:
+  recaptcha:
+    errors:
+      "incorrect-captcha-sol": "La verificación reCaptcha no está bien escrita."
+      "recaptcha-not-reachable": "reCaptcha no está disponible."
+
+    title: "Validación del nuevo usuario"
+    form:
+      title: "Validación del registro de usuario"
+      registration_help:
+        title: "Ayuda para registrarse"
+        content: "Es imprescindible rellenar el campo de verificación reCAPTCHA para validar tu registro. La validación reCAPTCHA es el cuadro granate. En su interior se encuentran unas letras que debes introducir en el campo. Se trata de una medida de seguridad que impide que los robots creen cuentas en la comunidad para fines fraudulentos."

@@ -1,0 +1,8 @@
+
+es:
+  user:
+    notifier:
+      change_email:
+        subject: Validación de email
+        body: "Alguien (probablemente tú) quiere usar esta dirección de email como la cuenta de %{web_name}.\n\nSi quieres confirmar el cambio, por favor visita %{validate}"
+
