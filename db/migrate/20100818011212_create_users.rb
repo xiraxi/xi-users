@@ -21,7 +21,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.datetime :validated_at
 
-      # Authentica fields, see Authlogic::Session::Perishability
+      # Authentication fields, see Authlogic::Session::Perishability
       t.string :crypted_password
       t.string :password_salt
       t.string :persistence_token

@@ -21,8 +21,11 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    current_user_session.destroy
-    reset_session
+    if current_user
+      current_user_session.destroy
+      reset_session
+    end
+
     redirect_to new_user_session_url
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100820020641) do
+ActiveRecord::Schema.define(:version => 20100820150728) do
 
   create_table "user_change_email_requests", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(:version => 20100820020641) do
   end
 
   add_index "user_change_email_requests", ["key"], :name => "index_user_change_email_requests_on_key", :unique => true
+
+  create_table "user_reset_password_requests", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

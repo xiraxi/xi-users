@@ -10,6 +10,9 @@ class User::Notifier < ActionMailer::Base
   def signup
   end
 
-  def forgot_password
+  def forgot_password(reset_password_request)
+    # Subject is set in t("user.notifier.forgot_password.subject")
+    @reset_password_request = reset_password_request
+    mail :to => reset_password_request.user.email
   end
 end

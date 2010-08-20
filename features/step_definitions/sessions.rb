@@ -1,6 +1,6 @@
 
 Given /^an anonymous session$/ do
-  # Nothing to do
+  visit logout_path
 end
 
 Given /^a session for the user "([^"]*)"$/ do |user_email|

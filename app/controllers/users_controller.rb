@@ -91,6 +91,38 @@ class UsersController < ApplicationController
     end
   end
 
+  def request_reset_password
+    if current_user
+      redirect_to user_profile_path
+    end
+
+    if request.post?
+      if user = User.find_by_email(params[:email])
+        @reset_request = User::ResetPasswordRequest.new
+        @reset_request.user = user
+        @reset_request.save!
+      else
+        flash.now[:error] = t("users.reset_password.unknown_email")
+      end
+    end
+  end
+
+  def reset_password
+    @reset_password_request = User::ResetPasswordRequest.find_by_key(params[:id])
+    return not_found unless @reset_password_request
+
+    if request.post?
+      @user = @reset_password_request.user
+      @user.password = params[:user][:password_confirmation]
+      @user.password_confirmation = params[:user][:password_confirmation]
+      if @user.save
+        # Authlogic creates a new session when saves the user
+        flash[:notice] = t("users.reset_password.password_updated")
+        redirect_to user_profile_path
+      end
+    end
+  end
+
   def home
     if current_user.nil?
       redirect_to login_path

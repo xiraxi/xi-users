@@ -40,7 +40,7 @@ When su publish your content on this webspace, the user accepts the following cl
       female: Female
 
     profiles:
-      page_title: Profiles
+      page_title: People
       title: People
 
     profile:
@@ -57,6 +57,16 @@ When su publish your content on this webspace, the user accepts the following cl
       title: "Change password"
       section:
         title: "Change password"
+
+    reset_password:
+      title: "Forgotten password"
+      section:
+        title: "Forgotten password"
+
+      email_sent: "An email was sent to %{email} with instructions to reset your password"
+      password_updated: "Your password has been updated."
+      unknown_email: "The given email was not found."
+
 
   activerecord:
     attributes:

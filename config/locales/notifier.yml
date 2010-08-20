@@ -5,3 +5,7 @@ en:
       change_email:
         subject: Email address validation
         body: "Someone (probably you) wants to use this email addres as the account of %{web_name}.\n\nIf you want to confirm the change, please visit %{validate}"
+
+      forgot_password:
+        subject: Reset password confirmation
+        body: "Someone (probably you) wants to reset the password of the account associated to this email in %{web_name}.\n\nIf you want to confirm the change, please visit %{validate}"
