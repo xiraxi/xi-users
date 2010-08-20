@@ -16,12 +16,12 @@ Feature: Users lists
         Scenarios:
             | order          | page          |
             | created_at     | users         |
-            | last_access_at | recents users |
+            | last_login_at  | recent users  |
 
     Scenario: Users connected within 30 minutes
         Given an anonymous session
         And the following users exist:
-            | email            | name | last_acess_at  |
+            | email            | name | last_login_at  |
             | john@example.com | John | 35 minutes ago |
             | jane@example.com | Jane | 25 minutes ago |
         When I go to the connected users page
@@ -31,7 +31,7 @@ Feature: Users lists
     Scenario: Every time the users log in its last acess timestamp is updated
         Given an anonymous session
         And the following users exist:
-            | email            | password | name | last_access_at |
+            | email            | password | name | last_login_at  |
             | john@example.com | test     | John | 10 minutes ago |
             | jane@example.com | test     | Jane | 1 day ago      |
         When I go to the page login 

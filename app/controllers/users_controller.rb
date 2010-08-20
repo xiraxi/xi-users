@@ -76,7 +76,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.valid
+    model = User.valid
+
+    model = case params[:order]
+      when "last_login" then model.order("last_login_at DESC")
+      when "connected" then model.order("last_login_at DESC").where(["last_login_at > ?", Time.zone.now - (params[:within] || 1800).to_i])
+      else model.order("validated_at DESC")
+    end
+
+    @users = model.all
   end
 
   def validate_email
