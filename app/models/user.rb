@@ -25,4 +25,7 @@ class User < ActiveRecord::Base
 
   scope :admins, where(:role => Role::Admin)
 
+
+  attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode, :country, :hobbies, :gtalk, :skype, :website, :about
+
 end

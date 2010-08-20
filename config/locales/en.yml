@@ -5,6 +5,12 @@ en:
       welcome_back: "Logged in. Welcome back!"
       invalid: "Invalid credentials."
 
+  account_settings:
+    title: Account settings
+
+    main_data:
+      title: Main data
+
   administrators:
     title: Administrators management
     remove_user: "Revoke admin grant for %{email}"

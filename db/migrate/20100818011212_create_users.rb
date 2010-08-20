@@ -6,14 +6,18 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :name
       t.string :surname
-      t.text :profile
-      t.date :born
+      t.text :about
+      t.date :birth_date
       t.string :gender
-      t.string :city
 
+      t.string :city
+      t.string :postcode
+      t.string :country
+
+      t.string :hobbies
       t.string :gtalk
       t.string :skype
-      t.string :web
+      t.string :website
 
       t.datetime :validated_at
 

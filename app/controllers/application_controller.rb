@@ -25,6 +25,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def only_logged_filter(*actions)
+    if current_user.nil?
+      redirect_to login_path
+      return
+    end
+  end
+
   class <<self
     def only_admins(*actions)
       if actions.empty?
@@ -33,5 +40,14 @@ class ApplicationController < ActionController::Base
         before_filter :only_admins_filter, :only => actions
       end
     end
+
+    def only_logged(*actions)
+      if actions.empty?
+        before_filter :only_logged_filter
+      else
+        before_filter :only_logged_filter, :only => actions
+      end
+    end
+
   end
 end

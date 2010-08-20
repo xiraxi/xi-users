@@ -25,4 +25,17 @@ class UsersController < ApplicationController
     end
   end
 
+  only_logged :settings
+  def settings
+    @user = current_user
+    if request.post?
+      # Security on attribute attacks relies on the model
+      @user.attributes = params[:user]
+      if @user.save!
+        flash[:notice] = "Your data has been updated."
+        redirect_to user_profile_path
+      end
+    end
+  end
+
 end

@@ -3,6 +3,7 @@ Rails.application.class.routes.draw do
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'home' => 'profiles#home', :as => :user_profile
+  match 'account/settings' => 'users#settings', :as => :account_settings
 
   resources :users
   resources :user_sessions

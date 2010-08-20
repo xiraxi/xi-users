@@ -31,6 +31,10 @@ When su publish your content on this webspace, the user accepts the following cl
           title: "Registration help"
           content: "It is necessary to fill reCAPTCHA validation field to verify your registration. ReCAPTCHA validation field is the dark red box. In this box there are some letters that you should type in the text field. This is a safety measure to avoid robots to create accounts for fraudulent purposes."
 
+    gender:
+      male: Male
+      female: Female
+
   activerecord:
     attributes:
       user:
