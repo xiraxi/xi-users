@@ -13,7 +13,7 @@
           = form.text_field :email
         %li
           = form.label :password, t("activerecord.attributes.user_session.password")
-          = form.text_field :password
+          = form.password_field :password
           
       %div.login-endless
         = form.check_box :remember_me
