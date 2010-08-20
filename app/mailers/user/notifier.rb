@@ -7,7 +7,9 @@ class User::Notifier < ActionMailer::Base
     mail :to => change_email_request.new_email
   end
 
-  def signup
+  def signup(user)
+    @user = user
+    mail :to => @user.email
   end
 
   def forgot_password(reset_password_request)

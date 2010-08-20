@@ -1,22 +1,29 @@
-- content_for :page_title, t("recaptcha.title")
+- content_for :page_title, t("users.recaptcha.title")
 
 %h1
-  = t("recaptcha.title")
+  = t("users.recaptcha.title")
 
 - if flash[:recaptcha_error]
   .error
     = t flash[:recaptcha_error], :scope => "recaptcha.errors"
 
 = form_for :user, :html => {:id => "recaptcha_form"} do |form|
-  %fieldset
-    %legend 
+  %div.fieldset
+    %div.legend
       = t("recaptcha.form.title")
-    = raw recaptcha_tags(:public_key => Rails.application.config.xi_users.recaptcha.public_key)
-    = hidden_field_tag :validated_attributes, @validated_attributes
+    = label_tag :recaptcha_challenge_field
+    = t("recaptcha.form.help")
+    %script{:type => "text/javascript", :src => "http://api.recaptcha.net/challenge?k=#{Rails.application.config.xi_users.recaptcha.public_key}&error="}
+    %noscript
+      #recaptcha-no-js
+        %object{:title => t("recaptcha.form.field.title"), :data => "http://api.recaptcha.net/noscript?k=#{Rails.application.config.xi_users.recaptcha.private_key}", :type => "text/html"}
+          %textarea{:name => "recaptcha_challenge_field", :id => "recaptcha_challenge_field", :rows => "30", :cols=> "3", :value => "palabras"}
 
-    = buttons_bar do
-      = button_ok
-      = button_cancel(users_path)
+  = hidden_field_tag :validated_attributes, @validated_attributes
+
+  = buttons_bar do
+    = button_ok
+    = button_cancel(users_path)
 
 - content_for :secondary_bar do
   %div.box.signup-help

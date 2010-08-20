@@ -7,7 +7,7 @@ Feature: User profiles
         When I go to the users page
         And I click on "John Smith"
         Then the current page is a "show" action
-        And the page does not contain the "user actions" box
+        And the page does not contain the "manage-box" box
 
     Scenario: Logged user can not do actions to herself
         Given a user exists with email: "john@example.com", name: "John Smith"
@@ -15,7 +15,7 @@ Feature: User profiles
         When I go to the users page
         And I click on "John Smith"
         Then the current page is a "show" action
-        And the page does not contain the "user actions" box
+        And the page does not contain the "actions-box" box
 
     Scenario: Users can manage its account
         Given a user exists with email: "john@example.com", name: "John Smith"
@@ -23,7 +23,7 @@ Feature: User profiles
         When I go to the users page
         And I click on "John Smith"
         Then the current page is a "show" action
-        And the page contains the "account management" box
+        And the page contains the "manage-box" box
 
     Scenario: Logged user can not manage others profile
         Given a user exists with email: "john@example.com", name: "John Smith"
@@ -32,4 +32,4 @@ Feature: User profiles
         When I go to the users page
         And I click on "Jane Thomson"
         Then the current page is a "show" action
-        And the page does not contain the "account management" box
+        And the page does not contain the "manage-box" box

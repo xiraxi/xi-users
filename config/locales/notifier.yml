@@ -9,3 +9,6 @@ en:
       forgot_password:
         subject: Reset password confirmation
         body: "Someone (probably you) wants to reset the password of the account associated to this email in %{web_name}.\n\nIf you want to confirm the change, please visit %{validate}"
+      signup:
+        subject: Account validation
+        body: "Welcome to %{web_name}.\n\nThanks for coming to our community. You can activate your account in %{validate}."
