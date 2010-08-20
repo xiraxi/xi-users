@@ -44,6 +44,10 @@ When su publish your content on this webspace, the user accepts the following cl
       male: Male
       female: Female
 
+    profiles:
+      page_title: Profiles
+      title: People
+
   activerecord:
     attributes:
       user:

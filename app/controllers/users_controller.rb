@@ -53,4 +53,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.valid
+  end
+
 end
