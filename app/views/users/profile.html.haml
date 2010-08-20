@@ -1,8 +1,8 @@
-- content_for :page_title, t("user.profile.page_title")
+- content_for :page_title, t("users.profile.page_title")
 
 #main
   %h1
-    = t("user.profile.title", :username => @user.complete_name)
+    = t("users.profile.title", :username => @user.complete_name)
   %div.profile-intro
     %dl
       %dt 
@@ -14,13 +14,13 @@
       %dd
         = @user.surname
     %div.signup-date
-      = t("user.profile.validated_at", :date => l(@user.validated_at, :format => :long))
+      = t("users.profile.validated_at", :date => l(@user.validated_at, :format => :long))
     %div.about
       %p 
         = @user.about
 
   %h2
-    = t("user.profile.personal_data")
+    = t("users.profile.personal_data")
   %dl.data.profile-data
     %dt
       = field_label(User, :birth_date)

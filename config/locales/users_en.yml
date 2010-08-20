@@ -43,6 +43,12 @@ When su publish your content on this webspace, the user accepts the following cl
       page_title: Profiles
       title: People
 
+    profile:
+      page_title: User profile
+      title: "%{username}'s profile"
+      validated_at: "Registered at %{date}"
+      personal_data: Personal data
+
     change_password:
       title: "Change password"
       section:
