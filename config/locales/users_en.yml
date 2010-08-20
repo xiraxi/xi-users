@@ -49,7 +49,7 @@ When su publish your content on this webspace, the user accepts the following cl
       validated_at: "Registered at %{date}"
       personal_data: Personal data
       own:
-        title: Your profile
+        title: My profile
       actions:
         change_photo: Change photo
 

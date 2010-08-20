@@ -65,28 +65,32 @@
  
 
 - content_for :secondary_bar do
-  - if @user == current_user
-    %div.box.profile-box
-      %h2
-        = t("users.profile.own.box")
-      %div.content
-        = raw user_photo(@user, {:big => true, :link => false}) 
-        = @user.complete_name
-        = link_to(t("users.actions.change_photo"), account_settings_path)
-  %div.box.manage-box
-    %h2 Gestión mi Perfil
+  %div.box.profile-box
+    %h2
+      = (@user == current_user) ? t("users.profile.own.title") : t("users.profile.title", :username => @user.complete_name)
     %div.content
-      %ul
-        / En este caso dijimos de no poner clases para iconitos; pero en otras webs las querrán; los dejo por ser caso general
-        %li.community-data 
-          %a{:href => "opcion"} 
-            Datos comunidad
-        %li.user-data
-          %a{:href => "opcion"} 
-            Datos personales
-        %li.invitations
-          %a{:href => "opcion"} 
-            Invitaciones
-        %li.public-profile
-          %a{:href => "opcion"} 
-            Perfil público
+      = raw user_photo(@user, {:big => true, :link => false}) 
+      = @user.complete_name
+      - if @user == current_user
+        = link_to(t("users.profile.actions.change_photo"), account_settings_path)
+      - else
+        %div.actions-box
+
+  - if @user == current_user
+    %div.box.manage-box
+      %h2 Gestión mi Perfil
+      %div.content
+        %ul
+          / En este caso dijimos de no poner clases para iconitos; pero en otras webs las querrán; los dejo por ser caso general
+          %li.community-data 
+            %a{:href => "opcion"} 
+              Datos comunidad
+          %li.user-data
+            %a{:href => "opcion"} 
+              Datos personales
+          %li.invitations
+            %a{:href => "opcion"} 
+              Invitaciones
+          %li.public-profile
+            %a{:href => "opcion"} 
+              Perfil público
