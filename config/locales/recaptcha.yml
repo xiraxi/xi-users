@@ -6,3 +6,9 @@ en:
       "incorrect-captcha-sol": "Incorrect solution."
       "recaptcha-not-reachable": "reCaptcha is not available."
 
+    title: "New user validation"
+    form:
+      title: "User register validation"
+      registration_help:
+        title: "Registration help"
+        content: "It is necessary to fill reCAPTCHA validation field to verify your registration. ReCAPTCHA validation field is the dark red box. In this box there are some letters that you should type in the text field. This is a safety measure to avoid robots to create accounts for fraudulent purposes."

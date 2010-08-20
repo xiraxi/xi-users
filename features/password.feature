@@ -22,14 +22,14 @@ Feature: Password management
         And a session for the user "john@example.com"
         When I go to the change password page
         And I fill in the following:
-            | current password      | <current> |
-            | password              | <first>   |
-            | password confirmation | <second>  |
+            | Current password      | <current> |
+            | Password              | <first>   |
+            | Password confirmation | <second>  |
         And I submit the form
-        Then the flash box contains "Invalid"
+        Then these fields have errors: <invalid>
 
         Scenarios:
-            | current | first | second |
-            | foo     | bar   | BAR    |
-            | foo     | qiz   | bar    |
-            | qiz     | bar   | bar    |
+            | current | first        | second       | invalid               |
+            | test.pw | different    | notiqual     | Password              |
+            | other   | new.password | new.password | Current password      |
+            | test.pw | x            | x            | Password confirmation |

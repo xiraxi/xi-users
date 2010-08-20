@@ -26,8 +26,14 @@ class User < ActiveRecord::Base
   scope :admins, where(:role => Role::Admin)
   scope :valid, where("validated_at IS NOT NULL")
 
+  attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode,
+                  :country, :hobbies, :gtalk, :skype, :website, :about,
+                  :password, :password_confirmation, :current_password, :terms_of_use
 
-  attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode, :country, :hobbies, :gtalk, :skype, :website, :about
+
+  # Password modification logic
+  attr_accessor :current_password
+  validates :current_password, :valid_password => true
 
   def complete_name
     [self.name, self.surname].join(" ")

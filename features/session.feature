@@ -36,7 +36,7 @@ Feature: User session management
   Scenario: A logged user becomes anonymous after logout
     Given a regular user session
     When I go to the logout page
-    Then the session is empty
+    Then the session does not have the "user credentials" key
 
   Scenario: Users can log in using the login form
     Given a user exists with email: "john@example.com", password: "test.pw"
@@ -58,3 +58,4 @@ Feature: User session management
     And I close the browser
     And I go to the user profile page
     Then the page contains "You are John Doe"
+

@@ -7,7 +7,7 @@ Given /^a session for the user "([^"]*)"$/ do |user_email|
   user = User.find_by_email(user_email) || Factory(:user, :email => user_email)
 
   old_password = [user.crypted_password, user.password_salt]
-  user.password = "test.pw"
+  user.password = user.password_confirmation = "test.pw"
   user.save!
 
   visit login_path
@@ -34,8 +34,8 @@ Then /^the current page is the logged user's profile$/ do
   current_path.should eql(user_profile_path)
 end
 
-Then /^the session is empty$/ do
-  cookie_jar.to_hash.should be_empty
+Then /^the session does not have the "([^"]*)" key$/ do |session_key|
+  Caulfield.session.should_not include(session_key.tr(" ", "_"))
 end
 
 Given /^an admin session$/ do

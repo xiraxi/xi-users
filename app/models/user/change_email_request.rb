@@ -3,11 +3,10 @@ class User::ChangeEmailRequest < ActiveRecord::Base
 
   before_save :assign_key
   def assign_key
-    while true
+    while self.key.blank?
       key = SecureRandom.hex(12)
       if self.class.where(:key => key).count == 0
         self.key = key
-        return
       end
     end
   end
@@ -22,5 +21,10 @@ class User::ChangeEmailRequest < ActiveRecord::Base
     delete_all ['created_at < ?', 2.days.ago]
   end
 
+
+  def validate_email
+    user.email = new_email
+    user.save
+  end
 
 end

@@ -23,18 +23,13 @@ When su publish your content on this webspace, the user accepts the following cl
           content1: "Please, fill in this form to begin with the registration. Once you have been registered we will send you an email in order to confirm your account and go on with the load process"
           content2: "All fields are required"
 
-    recaptcha:
-      title: "New user validation"
-      form:
-        title: "User register validation"
-        registration_help:
-          title: "Registration help"
-          content: "It is necessary to fill reCAPTCHA validation field to verify your registration. ReCAPTCHA validation field is the dark red box. In this box there are some letters that you should type in the text field. This is a safety measure to avoid robots to create accounts for fraudulent purposes."
-
     change_email:
       title: Email modification
 
       notice_saved: An email was sent to validate it.
+
+      validated: "The address was validated. Your new email is %{email}"
+      not_validated: "The given address could not be used as your email."
 
       section:
         title: New email
@@ -48,6 +43,11 @@ When su publish your content on this webspace, the user accepts the following cl
       page_title: Profiles
       title: People
 
+    change_password:
+      title: "Change password"
+      section:
+        title: "Change password"
+
   activerecord:
     attributes:
       user:
@@ -57,3 +57,10 @@ When su publish your content on this webspace, the user accepts the following cl
         name: Name
         surname: Surname
         terms_of_use: "I have read the terms and I accept them" 
+
+    errors:
+      models:
+        user:
+          attributes:
+            current_password:
+              invalid_password: "doesn't match"

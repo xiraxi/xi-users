@@ -41,4 +41,5 @@ group :development, :test do
   gem "pickle"
   gem "ruby-debug"
   gem "database_cleaner"
+  gem "caulfield"
 end
