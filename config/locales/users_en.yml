@@ -48,6 +48,10 @@ When su publish your content on this webspace, the user accepts the following cl
       title: "%{username}'s profile"
       validated_at: "Registered at %{date}"
       personal_data: Personal data
+      own:
+        title: Your profile
+      actions:
+        change_photo: Change photo
 
     change_password:
       title: "Change password"

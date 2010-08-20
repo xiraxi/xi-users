@@ -2,7 +2,7 @@
 
 #main
   %h1
-    = t("users.profile.title", :username => @user.complete_name)
+    = (@user == current_user) ? t("users.profile.own.title") : t("users.profile.title", :username => @user.complete_name)
   %div.profile-intro
     %dl
       %dt 
@@ -64,15 +64,15 @@
       = link_to(@user.website, @user.website) unless @user.website.blank?
  
 
-#secondary-bar.sidebar
-  %div.box.profile-box
-    %h2 Mi perfil
-    %div.content
-      = image_tag "user_avatar_m.png"
-      Tirso Maldonado
-      %a{:href => "profile/edit"}
-        Cambiar foto
-        /se cambia en la vista de editar datos personales
+- content_for :secondary_bar do
+  - if @user == current_user
+    %div.box.profile-box
+      %h2
+        = t("users.profile.own.box")
+      %div.content
+        = raw user_photo(@user, {:big => true, :link => false}) 
+        = @user.complete_name
+        = link_to(t("users.actions.change_photo"), account_settings_path)
   %div.box.manage-box
     %h2 Gestión mi Perfil
     %div.content
@@ -90,30 +90,3 @@
         %li.public-profile
           %a{:href => "opcion"} 
             Perfil público
-  %div.box.contacts-box
-    %h2 Mis amigos
-    %div.content
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
-      %a{:href => "user/profile"}
-        = image_tag "user_avatar.png"
