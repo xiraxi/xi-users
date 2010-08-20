@@ -1,9 +1,12 @@
 en:
   session:
     login:
-      title: "Log in"
+      title: "Identification"
       welcome_back: "Logged in. Welcome back!"
       invalid: "Invalid credentials."
+      form:
+        title: Login
+        forgot_password: "Did you forget your password?"
 
   account_settings:
     title: Account settings

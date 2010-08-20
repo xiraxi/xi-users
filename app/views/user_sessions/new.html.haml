@@ -16,14 +16,12 @@
           = form.text_field :password
           
       %div.login-endless
-        = form.label :remember_me, t("activerecord.attributes.user_session.remember_me")
         = form.check_box :remember_me
+        = form.label :remember_me, t("activerecord.attributes.user_session.remember_me")
 
       %div.forgot-password
         %a{:href => "/test/reset_password"}
-          ¿Olvidaste tu contraseña?
+          = t("session.login.form.forgot_password")
 
-      %div.buttons
-        %button.ok-button{:type => "submit"}
-          Entrar
-
+      = buttons_bar do
+        = button_ok
