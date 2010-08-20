@@ -10,6 +10,7 @@ Rails.application.class.routes.draw do
   match 'account/reset_password/:id' => 'users#reset_password', :as => :reset_password
   match 'account/email' => 'users#email', :as => :account_email
   match 'validate/email/:id' => "users#validate_email", :as => "validate_email_change"
+  match 'validate/account/:id' => "users#validate_account", :as => "validate_account"
 
   resources :users
   resources :user_sessions

@@ -10,7 +10,9 @@ class UsersController < ApplicationController
       @user = User.new(attributes)
       @user.email = attributes[:email]
       if verify_recaptcha(:private_key => Rails.application.config.xi_users.recaptcha.private_key, :model => @user) and @user.save
-        redirect_to user_profile_path
+        current_user_session.destroy if current_user_session
+        flash[:notice] = I18n.t("users.create.success")
+        redirect_to login_path
       else
         @validated_attributes = params[:validated_attributes]
         render :action => "recaptcha"
@@ -24,6 +26,24 @@ class UsersController < ApplicationController
       else
         render :new
       end
+    end
+  end
+
+  def validate_account
+    if current_user
+      redirect_to user_profile_path 
+      return
+    end
+
+    @user = User.find_using_perishable_token(params[:id])
+    if @user
+      @user.validated_at = Time.now
+      @user.save!
+
+      flash[:notice] = I18n.t("users.validate_account.success")
+      redirect_to login_path
+    else
+      not_found
     end
   end
 
@@ -126,10 +146,11 @@ class UsersController < ApplicationController
   def home
     if current_user.nil?
       redirect_to login_path
-    else
-      @user = current_user
-      render :template => "users/profile"
+      return
     end
+
+    @user = current_user
+    render :template => "users/profile"
   end
 
   def show

@@ -29,7 +29,7 @@ Feature: Registration in the web
             | Name                      | Dude             |
             | Surname                   | Example          |
         And I submit the form
-        Then the form field "user acceptance" has an error
+        Then these fields have errors: user_terms_of_use 
 
     Scenario: Password has to be confirmed
         Given an anonymous session
@@ -41,7 +41,7 @@ Feature: Registration in the web
             | Name                      | Dude             |
             | Surname                   | Example          |
         And I submit the form
-        Then the form field "password confirmation" has an error
+        Then these fields have errors: Password 
 
     Scenario Outline: Email address has to be valid and unique
         Given an anonymous session
@@ -54,7 +54,7 @@ Feature: Registration in the web
             | Name                      | Dude             |
             | Surname                   | Example          |
         And I submit the form
-        Then the form field "email" has an error
+        Then these fields have errors: Email 
 
         Scenarios:
             | email             |
@@ -67,15 +67,23 @@ Feature: Registration in the web
 
     Scenario: When anonymous user registers, a confirmation email is sent
         Given an anonymous session
-        When I go to the signup page
+        When I go to the new user page
         And I fill in the following:
-            | email                 | dude@example.com |
-            | password              | foobar           |
-            | password confirmation | foobar           |
-            | name                  | Dude             |
-            | surname               | Example          |
-            | acceptance            | checked          |
+            | Email                 | dude@example.com |
+            | Password              | foobar           |
+            | Password confirmation | foobar           |
+            | Name                  | Dude             |
+            | Surname               | Example          |
+        And I check "I have read the terms and I accept them"
         And I submit the form
-        And I force the reCaptcha to be valid
+        Then I force the reCaptcha to be valid
         Then the flash box contains "An email was sent to confirm your address."
         And an email was sent with subject: "Account validation"
+
+    Scenario: When anonymous user confirms the signup, the user is actived
+      Given an anonymous session
+      And an invalidated user: "john" exists with email: "john@example.com", perishable_token: "12345"
+      When I go to the validate account page with id: "12345"
+      Then the user with email "john@example.com" is validated
+      And the flash box contains "Your account is validated."
+

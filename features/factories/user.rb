@@ -23,6 +23,10 @@ Factory.define :user do |u|
     #u.web
 end
 
+Factory.define :invalidated_user, :parent => :user do |u|
+  u.validated_at nil
+end
+
 User.class_eval do
   def admin=(v)
     self.role = v ? User::Role::Admin : User::Role::Regular
