@@ -24,8 +24,18 @@ class User < ActiveRecord::Base
   end
 
   scope :admins, where(:role => Role::Admin)
+  scope :valid, where("validated_at IS NOT NULL")
 
 
   attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode, :country, :hobbies, :gtalk, :skype, :website, :about
+
+  def complete_name
+    [self.name, self.surname].join(" ")
+  end
+
+  # TO DO
+  def photo
+    nil
+  end
 
 end
