@@ -11,6 +11,8 @@ en:
     main_data:
       title: Main data
 
+    notice_saved: "Your data has been updated."
+
   administrators:
     title: Administrators management
     remove_user: "Revoke admin grant for %{email}"

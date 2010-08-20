@@ -32,7 +32,22 @@ class UsersController < ApplicationController
       # Security on attribute attacks relies on the model
       @user.attributes = params[:user]
       if @user.save!
-        flash[:notice] = "Your data has been updated."
+        flash[:notice] = I18n.t("account_settings.notice_saved")
+        redirect_to user_profile_path
+      end
+    end
+  end
+
+  only_logged :settings
+  def email
+    @user = current_user
+    if request.post?
+      # Security on attribute attacks relies on the model
+      @user.email = params[:user][:email]
+      if @user.valid?
+        User::ChangeEmailRequest.create! :user => @user, :new_email => @user.email
+
+        flash[:notice] = I18n.t("users.change_email.notice_saved")
         redirect_to user_profile_path
       end
     end

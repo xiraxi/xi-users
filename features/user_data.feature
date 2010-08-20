@@ -19,14 +19,15 @@ Feature: User data modification
 
   Scenario: Email changes has to be validated by email
     Given a session for the user "john@example.com"
-    When I go to the account settings page
+    When I go to the account email page
     And I fill in "john.two@example.com" for "Email"
     And I submit the form
     Then email was sent with subject: "Email address validation", to: "john.two@example.com"
+    And the flash box contains "An email was sent to validate it."
 
-  Scenario: Email change confirmation
+  Scenario: After confirm a email change request the email is modified
     Given a user exists with email: "first@example.com", name: "Test user"
-    And a email change request exists with key: "1234", new email: "second@example.com", user: "first@example.com"
+    And a change email request exists with key: "1234", new_email: "second@example.com", user: "first@example.com"
     When I go to the validate email change page with key: "1234"
     Then a user should exist with email: "second@example.com", name: "Test user"
 
@@ -48,3 +49,4 @@ Feature: User data modification
     And I click on "Male"
     And I submit the form
     Then a user should exist with name: "John", surname: "Example", birth_date: "1980-08-19", gender: "male", about: "foo", hobbies: "Make funny things", postcode: "00001", city: "Milan", country: "Italy", gtalk: "john@gmail.com", skype: "johnskype", website: "www.john.com"
+    And the flash box contains "Your data has been updated."

@@ -1,0 +1,20 @@
+- content_for :page_title, t("users.change_email.title")
+
+%h1
+  = t("users.change_email.title")
+
+= form_for :user do |form|
+  = error_messages_for @user
+
+  %fieldset
+    %legend
+      = t "users.change_email.section.title"
+    %p
+      = t "users.change_email.section.help"
+    %ul
+      %li
+        = form.label :email
+        = form.text_field :email
+    = buttons_bar do
+      = button_ok
+      = button_cancel
