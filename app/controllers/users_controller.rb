@@ -126,9 +126,10 @@ class UsersController < ApplicationController
   def home
     if current_user.nil?
       redirect_to login_path
+    else
+      @user = current_user
+      render :template => "users/profile"
     end
-    @user = current_user
-    render :template => "users/profile"
   end
 
   def show
