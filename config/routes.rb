@@ -13,7 +13,7 @@ Rails.application.class.routes.draw do
   match 'validate/email/:id' => "users#validate_email", :as => :validate_email_change
   match 'validate/account/:id' => "users#validate_account", :as => :validate_account
 
-  match 'users/last_logged' => 'users#index', :order => "last_login", :as => "recent_users"
+  match 'users/recent' => 'users#index', :order => "last_login", :as => "recent_users"
   match 'users/connected' => 'users#index', :order => "connected", :as => "connected_users"
 
   resources :users
