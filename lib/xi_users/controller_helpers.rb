@@ -23,7 +23,7 @@ module XiUsers::ControllerHelpers
     end
 
     if not current_user.admin?
-      render :partial => "status/forbidden", :status => 403
+      forbidden
     end
   end
 
