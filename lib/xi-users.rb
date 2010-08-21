@@ -1,5 +1,5 @@
 
-class XiUsersPlugin < Rails::Engine
+class XiUsers < Rails::Engine
   config.xi_users = ActiveSupport::OrderedOptions.new
 
   config.xi_users.recaptcha = ActiveSupport::OrderedOptions.new

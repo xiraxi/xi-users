@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-XiUsers::Application.load_tasks
+XiUsersWorker::Application.load_tasks
