@@ -6,3 +6,9 @@ es:
         subject: Validación de email
         body: "Alguien (probablemente tú) quiere usar esta dirección de email como la cuenta de %{web_name}.\n\nSi quieres confirmar el cambio, por favor visita %{validate}"
 
+      forgot_password:
+        subject: Confirmación de restablecimiento de contraseña
+        body: "Alguien (probablemente tú) quiere restablecer la contraseña de la cuenta asociada a este email en %{web_name}.\n\nSi quieres confirmar el cambio, por favor visita %{validate}"
+      signup:
+        subject: Validación de la cuenta
+        body: "Bienvenido a %{web_name}.\n\nGracias por formar parte de nuestra comunidad. Puedes activar tu cuenta en %{validate}."
