@@ -30,8 +30,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'authlogic', :git => 'git://github.com/scrum8/authlogic.git'
 
-gem "xiraxi-core", :path => "../xiraxi-core/"
+#gem "xiraxi-core", :path => "../xiraxi-core/"
 gemspec
+gemspec :path => "../xiraxi-core/"
 
 group :development, :test do
   gem "rspec"
@@ -43,3 +44,5 @@ group :development, :test do
   gem "database_cleaner"
   gem "caulfield"
 end
+
+# vim: syntax=ruby
