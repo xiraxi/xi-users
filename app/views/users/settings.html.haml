@@ -66,8 +66,6 @@
         = form.label :website
         = form.text_field :website
 
-  %div.buttons
-    %button{:class => "ok-button", :type => "submit"}
-      Guardar
-    %a.button{:class => "cancel-button", :href => "miperfil"}
-      Cancelar
+  = buttons_bar do
+    = button_ok
+    = button_cancel(home_path)
