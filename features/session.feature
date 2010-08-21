@@ -57,5 +57,4 @@ Feature: User session management
     And I submit the form
     And I close the browser
     And I go to the user profile page
-    Then the page contains "You are John Doe"
-
+    Then the page contains "My profile"

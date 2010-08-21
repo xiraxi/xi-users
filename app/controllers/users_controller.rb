@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       @user = User.new(attributes)
       @user.email = attributes[:email]
       if verify_recaptcha(:private_key => Rails.application.config.xi_users.recaptcha.private_key, :model => @user) and @user.save
-        current_user_session.destroy if current_user_session
         flash[:notice] = I18n.t("users.create.success")
         redirect_to login_path
       else
@@ -76,15 +75,18 @@ class UsersController < ApplicationController
   end
 
   def index
-    model = User.valid
+    dataset = User.valid
 
-    model = case params[:order]
-      when "last_login" then model.order("last_login_at DESC")
-      when "connected" then model.order("last_login_at DESC").where(["last_login_at > ?", Time.zone.now - (params[:within] || 1800).to_i])
-      else model.order("validated_at DESC")
+    dataset = case params[:order]
+      when "last_login" then
+        dataset.order("current_login_at DESC")
+      when "connected" then
+        dataset.order("current_login_at DESC").where(["current_login_at > ?", (params[:within] || 30).to_i.minutes.ago])
+      else
+        dataset.order("validated_at DESC")
     end
 
-    @users = model.all
+    @users = dataset.all
   end
 
   def validate_email
@@ -146,7 +148,7 @@ class UsersController < ApplicationController
       if @user.save
         # Authlogic creates a new session when saves the user
         flash[:notice] = t("users.reset_password.password_updated")
-        redirect_to user_profile_path
+        redirect_to login_path
       end
     end
   end

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   acts_as_authentic do |config|
     config.disable_perishable_token_maintenance = true
+    config.maintain_sessions = false
   end
 
   attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode,

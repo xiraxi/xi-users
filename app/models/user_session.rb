@@ -7,4 +7,6 @@ class UserSession < Authlogic::Session::Base
       errors.add_to_base "Invalid user"
     end
   end
+
+
 end

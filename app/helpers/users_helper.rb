@@ -1,7 +1,7 @@
 module UsersHelper
 
   def link_to_profile(user, options = {})
-    link_to(user.complete_name, user_path(user), options)
+    link_to(user.complete_name, user_path(user), { :class => "user_name" }.merge(options))
   end
 
   def user_photo(user, options = {})
