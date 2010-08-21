@@ -58,3 +58,15 @@ Feature: User session management
     And I close the browser
     And I go to the user profile page
     Then the page contains "My profile"
+
+  Scenario: Unconfirmed users can not login
+    Given an anonymous session
+    And an unconfirmed user: "john" exists with email: "john@example.com", password: "test.pw"
+    When I go to the login page
+    And I fill in the following:
+      | Email    | john@example.com |
+      | Password | test.pw          |
+    And I submit the form
+    Then the session does not have the "user credentials" key
+    And the page contains "Your account is not confirmed"
+

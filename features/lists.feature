@@ -15,7 +15,7 @@ Feature: Users lists
 
     Scenarios:
       | order            | page         |
-      | validated_at     | users        |
+      | confirmed_at     | users        |
       | current_login_at | recent users |
 
   Scenario: A user is connected during 30 minutes

@@ -16,15 +16,15 @@ Factory.define :user do |u|
     u.city "Oslo"
     u.country "Norway"
 
-    u.validated_at { Time.now - 1.day }
+    u.confirmed_at { Time.now - 1.day }
 
     #u.gtalk
     #u.skype
     #u.web
 end
 
-Factory.define :invalidated_user, :parent => :user do |u|
-  u.validated_at nil
+Factory.define :unconfirmed_user, :parent => :user do |u|
+  u.confirmed_at nil
 end
 
 User.class_eval do

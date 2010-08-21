@@ -80,10 +80,10 @@ Feature: Registration in the web
         Then the flash box contains "An email was sent to confirm your address."
         And an email was sent with subject: "Account validation"
 
-    Scenario: When anonymous user confirms the signup, the user is actived
+    Scenario: When anonymous user confirms the signup, the account can be used
       Given an anonymous session
-      And an invalidated user: "john" exists with email: "john@example.com", perishable_token: "12345"
+      And an unconfirmed user: "john" exists with email: "john@example.com", perishable_token: "12345"
       When I go to the validate account page with id: "12345"
-      Then the user with email "john@example.com" is validated
+      Then the user with email "john@example.com" is confirmed
       And the flash box contains "Your account is validated."
 

@@ -4,6 +4,7 @@
   %h1
     = t("session.login.title")
   = form_for :user_session, :html => { :id => "login-form" }, :url => user_sessions_path do |form|
+    = error_messages_for @user_session
     %fieldset
       %legend
         = t("session.login.form.title")

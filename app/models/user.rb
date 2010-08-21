@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   scope :admins, where(:role => Role::Admin)
-  scope :valid, where("validated_at IS NOT NULL")
+  scope :confirmed, where("confirmed_at IS NOT NULL")
 
   def admin?
     role == Role::Admin
@@ -46,8 +46,8 @@ class User < ActiveRecord::Base
     [self.name, self.surname].join(" ")
   end
 
-  def validated?
-    !validated_at.nil?
+  def confirmed?
+    !!confirmed_at
   end
 
   # TO DO

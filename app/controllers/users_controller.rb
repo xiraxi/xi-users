@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     @user = User.find_using_perishable_token(params[:id])
     if @user
-      @user.validated_at = Time.now
+      @user.confirmed_at = Time.now
       @user.save!
 
       flash[:notice] = I18n.t("users.validate_account.success")
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    dataset = User.valid
+    dataset = User.confirmed
 
     dataset = case params[:order]
       when "last_login" then
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
       when "connected" then
         dataset.order("current_login_at DESC").where(["current_login_at > ?", (params[:within] || 30).to_i.minutes.ago])
       else
-        dataset.order("validated_at DESC")
+        dataset.order("confirmed_at DESC")
     end
 
     @users = dataset.all
@@ -165,7 +165,7 @@ class UsersController < ApplicationController
 
   def show
     begin
-      @user = User.valid.find(params[:id])
+      @user = User.confirmed.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       return not_found
     end

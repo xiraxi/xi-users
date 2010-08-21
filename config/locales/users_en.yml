@@ -47,7 +47,7 @@ When su publish your content on this webspace, the user accepts the following cl
     profile:
       page_title: User profile
       title: "%{username}'s profile"
-      validated_at: "Registered at %{date}"
+      confirmed_at: "Registered at %{date}"
       personal_data: Personal data
       own:
         title: My profile

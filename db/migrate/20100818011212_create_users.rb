@@ -19,7 +19,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :skype
       t.string :website
 
-      t.datetime :validated_at
+      t.datetime :confirmed_at
 
       # Authentication fields, see Authlogic::Session::Perishability
       t.string :crypted_password

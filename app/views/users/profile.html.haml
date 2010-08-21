@@ -14,7 +14,7 @@
       %dd
         = @user.surname
     %div.signup-date
-      = t("users.profile.validated_at", :date => l(@user.validated_at, :format => :long))
+      = t("users.profile.confirmed_at", :date => l(@user.confirmed_at, :format => :long))
     %div.about
       %p 
         = @user.about

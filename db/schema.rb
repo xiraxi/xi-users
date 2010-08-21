@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20100820150728) do
     t.string   "gtalk"
     t.string   "skype"
     t.string   "website"
-    t.datetime "validated_at"
+    t.datetime "confirmed_at"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
