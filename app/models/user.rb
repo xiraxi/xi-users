@@ -9,13 +9,16 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode,
                   :country, :hobbies, :gtalk, :skype, :website, :about,
-                  :password, :password_confirmation, :current_password, :terms_of_use
+                  :password, :password_confirmation, :current_password, :terms_of_use,
+                  :photo
 
   # Password modification logic
   attr_accessor :current_password
 
   validates :current_password, :valid_password => true
   validates :terms_of_use, :acceptance => true
+
+  has_attached_file :photo, :styles => {:thumb => "100x100>" }
 
   module Gender
     Male = "male"
@@ -50,11 +53,6 @@ class User < ActiveRecord::Base
 
   def confirmed?
     !!confirmed_at
-  end
-
-  # TO DO
-  def photo
-    nil
   end
 
   before_create :assign_perishable_token

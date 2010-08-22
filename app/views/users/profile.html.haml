@@ -13,6 +13,10 @@
         = field_label(User, :surname)
       %dd
         = @user.surname
+      %dt
+        = field_label(User, :photo)
+      %dd
+        = image_tag @user.photo.url(:thumb)
     %div.signup-date
       = t("users.profile.confirmed_at", :date => l(@user.confirmed_at, :format => :long))
     %div.about
@@ -62,7 +66,6 @@
       = field_label(User, :website)
     %dd 
       = link_to(@user.website, @user.website) unless @user.website.blank?
- 
 
 - content_for :secondary_bar do
   %div.box.profile-box

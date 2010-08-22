@@ -10,7 +10,7 @@ module UsersHelper
     img_opts = options[:img_opts] || {}
     if photo = user.photo
        type = (options[:big] ? nil : :thumb)
-       html_img = image_tag(photo.public_filename(type), img_opts.merge(:size => size, :title => user_name, :alt => user_name))
+       html_img = image_tag(photo.url(:thumb), img_opts.merge(:size => size, :title => user_name, :alt => user_name))
     else
        gender = user.gender || "male"
        html_img = image_tag(options[:big] ? Rails.application.config.xi_users.icons.send(gender).big : Rails.application.config.xi_users.icons.send(gender).thumb , img_opts.merge(:size => size, :title => user_name, :alt => user_name))

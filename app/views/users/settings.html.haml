@@ -3,7 +3,7 @@
 %h1
   = t("account_settings.title")
 
-= form_for :user do |form|
+= form_for :user, :html => {:multipart => true} do |form|
   = error_messages_for @user
 
   %fieldset
@@ -19,6 +19,9 @@
       %li
         = form.label :about
         = form.text_area :about, :class => "medium"
+      %li
+        = form.label :photo
+        = form.file_field :photo
 
   %fieldset
     %legend= User.human_attribute_name "birth_date"
