@@ -10,13 +10,13 @@
 = form_for :user, :html => {:id => "recaptcha_form"} do |form|
   %div.fieldset
     %div.legend
-      = t("recaptcha.form.title")
+      = t("users.recaptcha.form.title")
     = label_tag :recaptcha_challenge_field
-    = t("recaptcha.form.help")
+    = t("users.recaptcha.form.help")
     %script{:type => "text/javascript", :src => "http://api.recaptcha.net/challenge?k=#{Rails.application.config.xi_users.recaptcha.public_key}&error="}
     %noscript
       #recaptcha-no-js
-        %object{:title => t("recaptcha.form.field.title"), :data => "http://api.recaptcha.net/noscript?k=#{Rails.application.config.xi_users.recaptcha.private_key}", :type => "text/html"}
+        %object{:title => t("users.recaptcha.form.field.title"), :data => "http://api.recaptcha.net/noscript?k=#{Rails.application.config.xi_users.recaptcha.private_key}", :type => "text/html"}
           %textarea{:name => "recaptcha_challenge_field", :id => "recaptcha_challenge_field", :rows => "30", :cols=> "3", :value => "palabras"}
 
   = hidden_field_tag :validated_attributes, @validated_attributes
@@ -28,7 +28,7 @@
 - content_for :secondary_bar do
   %div.box.signup-help
     %h2 
-      = t("recaptcha.form.registration_help.title")
+      = t("users.recaptcha.form.registration_help.title")
     %div.content
       %p.important
-        = t("recaptcha.form.registration_help.content")
+        = t("users.recaptcha.form.registration_help.content")
