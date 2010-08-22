@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   end
 
   has_friendly_id :complete_name, :use_slug => true, :approximate_ascii => true
+  has_attached_file :photo, :styles => {:thumb => "100x100>" }
+
 
   attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode,
                   :country, :hobbies, :gtalk, :skype, :website, :about,
@@ -17,8 +19,6 @@ class User < ActiveRecord::Base
 
   validates :current_password, :valid_password => true
   validates :terms_of_use, :acceptance => true
-
-  has_attached_file :photo, :styles => {:thumb => "100x100>" }
 
   module Gender
     Male = "male"
