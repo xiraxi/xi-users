@@ -27,6 +27,8 @@ es:
           title: "Ayuda para registrarse"
           content1: "Por favor, rellena este formulario para iniciar el proceso de registro. Cuando te registres te enviaremos un email a la dirección que nos indiques para confirmar tu cuenta y continuar con el proceso de carga."
           content2: "Todos los campos son obligatorios."
+    create:
+      success: "Se ha enviado un email para confirmar tu dirección."
 
     change_email:
       title: Cambio de email
@@ -48,6 +50,16 @@ es:
       page_title: Gente
       title: Gente
 
+    profile:
+      page_title: Perfil de usuario
+      title: "%Perfil de {username}"
+      confirmed_at: "Registrado el %{date}"
+      personal_data: Información personal
+      own:
+        title: Mi perfil
+      actions:
+        change_photo: Cambiar foto
+
     change_password:
       title: "Cambiar contraseña"
       section:
@@ -57,6 +69,13 @@ es:
       title: "Contraseña olvidada"
       section:
         title: "Contraseña olvidada"
+
+      email_sent: "Se ha enviado un email a %{email} con instrucciones para restablecer to contraseña"
+      password_updated: "Tu contraseña ha sido actualizada"
+      unknown_email: "No se ha encontrado el email indicado"
+
+    validate_account:
+      success: "Tu cuenta ha sido validada."
 
   activerecord:
     attributes:
