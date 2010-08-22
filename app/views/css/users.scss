@@ -1,0 +1,170 @@
+
+.profiles {
+  .profile {
+    @include item;
+  }
+}
+
+.profile {
+  .profile_intro {
+    .signup_date {
+      color: $text-medium;
+    }
+  }
+}
+
+
+.winks {
+  .wink {
+    display: inline-block;
+    width: 45%;
+    margin-bottom: $box-margin;
+    margin-right: $box-margin;
+
+    .user_photo {
+      float: left;
+      margin-right: $avatar-margin;
+
+      a {
+        img {
+          border: none;
+        }
+      }
+    }
+    .date {
+      color: $text-medium;
+    }
+  }
+}
+
+#main {
+  form.login {
+    margin: 3em;
+    max-width: 26em;
+
+    fieldset {
+       @include fieldset-hidden;
+
+       .forgot_password {
+         float: right;
+       }
+    }
+  }
+}
+
+form#signup {
+  fieldset {
+    div.terms_of_use {
+      max-height: 10em;
+      overflow: auto;
+      border: 1px solid $text-dark;
+      padding: 4px;
+    }
+  }
+}
+
+.sidebar {
+  .login {
+    padding: $box-margin;
+
+    fieldset {
+      @include fieldset-hidden;
+
+      label {
+        display: inline-block;
+        font-weight: bold;
+        color: $text-default;
+        width: 5.6em;
+        margin-bottom: 0.8em;
+        clear: left;
+      }
+      input {
+        background: white;
+        border: 1px solid $boxborder-color;
+        width: 10.4em;
+      }
+      input.button {
+        @include login-buttons;
+        background: $text-medium;
+        color: $text-light;
+        padding: 2px;
+      }
+      input.button:hover {
+        text-decoration: underline;
+
+      }
+      div.forgot_password {
+        float: right;
+        font-size: 90%;
+        margin-bottom: 0.7em;
+
+        a {
+          color: $text-default;
+        }
+      }
+    }
+  }
+  .signup {
+    padding: $box-margin;
+    font-weight: bold;
+    border-top: 1px solid $boxborder-color;
+
+    a.button {
+      @include login-buttons;
+      background: $mainmenu-color;
+      text-transform: uppercase;
+      margin-top: 1em;
+      text-align: center;
+      padding: 4px 0 3px;
+    }
+  }
+}
+
+.signup_help {
+  .content {
+    border: none;
+    margin: $box-margin;
+
+    p:first-child {
+      margin-top: 0;
+    }
+    p.important {
+      color: #9c0000;
+      font-weight: bold;
+    }
+  }
+}
+
+
+form.preferences {
+  fieldset {
+    margin-bottom: 0.5em;
+  }
+  div.buttons {
+    margin-top: 0;
+  }
+}
+
+.profile_box {
+  .content {
+    padding: $box-margin;
+    font-weight: bold;
+
+    img {
+      float: left;
+      padding-right: $box-margin;
+    }
+    a {
+      font-weight: normal;
+      padding-top: 0.5em;
+      display: block;
+    }
+  }
+}
+
+
+
+.contacts_box {
+  @include photos-box;
+}
+
