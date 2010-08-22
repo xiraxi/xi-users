@@ -1,54 +1,53 @@
 - content_for :page_title, t("users.profiles.page_title")
 
-#main
-  %h1
-    = t("users.profiles.title")
-  %div.profiles
-    - @users.each do |user|
-      %div.profile
-        %h2
-          = raw link_to_profile(user)
-        %div.user-photo
-          = raw user_photo(user, {:big => true})
-        %div.profile-intro
-          %div.about
-            %p 
-              = user.about
+%h1
+  = t("users.profiles.title")
+%div.profiles
+  - @users.each do |user|
+    %div.profile
+      %h2
+        = raw link_to_profile(user)
+      %div.user-photo
+        = raw user_photo(user, {:big => true})
+      %div.profile-intro
+        %div.about
+          %p 
+            = user.about
 
-    %div.pagination
-      %div.relative
-        %ul
-          %li
-            %a{:href => "previous"}
-              Anterior
-          %li
-            %a{:href => "next"}
-              Siguiente
-      %ul.pagenumbers
-        %li 
+  %div.pagination
+    %div.relative
+      %ul
+        %li
+          %a{:href => "previous"}
+            Anterior
+        %li
+          %a{:href => "next"}
+            Siguiente
+    %ul.pagenumbers
+      %li 
+        %span.hidden
+          page
+        1
+      %li 
+        %a{:href => "page2"}
           %span.hidden
             page
-          1
-        %li 
-          %a{:href => "page2"}
-            %span.hidden
-              page
-            2
-        %li 
-          %a{:href => "page2"}
-            %span.hidden
-              page
-            3
-        %li 
-          %a{:href => "page2"}
-            %span.hidden
-              page
-            4
-        %li 
-          %a{:href => "page2"}
-            %span.hidden
-              page
-            5
+          2
+      %li 
+        %a{:href => "page2"}
+          %span.hidden
+            page
+          3
+      %li 
+        %a{:href => "page2"}
+          %span.hidden
+            page
+          4
+      %li 
+        %a{:href => "page2"}
+          %span.hidden
+            page
+          5
 
 
 

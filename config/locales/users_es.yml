@@ -1,6 +1,13 @@
 
 es:
 
+  account_settings:
+    sections:
+      main_data: Datos principales
+      birth_date: Fecha de nacimiento
+      address: Dirección
+      hobbies_and_contacts: Aficiones y contactos
+
   users:
     new:
       title: "Nuevo usuario"

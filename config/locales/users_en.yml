@@ -1,5 +1,11 @@
 
 en:
+  account_settings:
+    sections:
+      main_data: Main data
+      birth_date: Birth date
+      address: Address
+      hobbies_and_contacts: Hobbies and contacts
 
   users:
     new:

@@ -1,99 +1,67 @@
 - content_for :page_title, t("users.profile.page_title")
 
-#main
-  %h1
-    = (@user == current_user) ? t("users.profile.own.title") : t("users.profile.title", :username => @user.complete_name)
-  %div.profile-intro
-    %dl
-      %dt 
-        = field_label(User, :name)
-      %dd 
-        = @user.name
-      %dt
-        = field_label(User, :surname)
-      %dd
-        = @user.surname
-      %dt
-        = field_label(User, :photo)
-      %dd
-        = image_tag @user.photo.url(:thumb)
-    %div.signup-date
-      = t("users.profile.confirmed_at", :date => l(@user.confirmed_at, :format => :long))
-    %div.about
-      %p 
-        = @user.about
-
-  %h2
-    = t("users.profile.personal_data")
-  %dl.data.profile-data
-    %dt
-      = field_label(User, :birth_date)
-    %dd
-      = l(@user.birth_date, :format => :long) unless @user.birth_date.nil?
-    %dt
-      = field_label(User, :gender)
-    %dd
-      = @user.gender
-    %dt
-      = field_label(User, :city)
-    %dd
-      = @user.city
-    %dt
-      = field_label(User, :postcode)
-    %dd
-      = @user.postcode
-    %dt
-      = field_label(User, :country)
-    %dd
-      = @user.country
-    %dt
-      = field_label(User, :hobbies)
-    %dd
-      = @user.hobbies
-    %dt
-      = field_label(User, :email)
-    %dd
-      = @user.email
-    %dt
-      = field_label(User, :gtalk)
-    %dd
-      = @user.gtalk
-    %dt
-      = field_label(User, :skype)
-    %dd
-      = @user.skype
-    %dt
-      = field_label(User, :website)
+%h1
+  = (@user == current_user) ? t("users.profile.own.title") : t("users.profile.title", :username => @user.complete_name)
+%div.profile-intro
+  %dl
+    %dt 
+      = field_label(User, :name)
     %dd 
-      = link_to(@user.website, @user.website) unless @user.website.blank?
+      = @user.name
+    %dt
+      = field_label(User, :surname)
+    %dd
+      = @user.surname
+    %dt
+      = field_label(User, :photo)
+    %dd
+      = image_tag @user.photo.url(:thumb)
+  %div.signup-date
+    = t("users.profile.confirmed_at", :date => l(@user.confirmed_at, :format => :long))
+  %div.about
+    %p 
+      = @user.about
 
-- content_for :secondary_bar do
-  %div.box.profile-box
-    %h2
-      = (@user == current_user) ? t("users.profile.own.title") : t("users.profile.title", :username => @user.complete_name)
-    %div.content
-      = raw user_photo(@user, {:big => true, :link => false}) 
-      = @user.complete_name
-      - if @user == current_user
-        = link_to(t("users.profile.actions.change_photo"), account_settings_path)
-      - else
-        %div.actions-box
-
-  - if @user == current_user
-    %div.box.manage-box
-      %h2 Gestión mi Perfil
-      %div.content
-        %ul
-          / En este caso dijimos de no poner clases para iconitos; pero en otras webs las querrán; los dejo por ser caso general
-          %li.community-data 
-            %a{:href => "opcion"} 
-              Datos comunidad
-          %li.user-data
-            %a{:href => "opcion"} 
-              Datos personales
-          %li.invitations
-            %a{:href => "opcion"} 
-              Invitaciones
-          %li.public-profile
-            %a{:href => "opcion"} 
-              Perfil público
+%h2
+  = t("users.profile.personal_data")
+%dl.data.profile-data
+  %dt
+    = field_label(User, :birth_date)
+  %dd
+    = l(@user.birth_date, :format => :long) unless @user.birth_date.nil?
+  %dt
+    = field_label(User, :gender)
+  %dd
+    = @user.gender
+  %dt
+    = field_label(User, :city)
+  %dd
+    = @user.city
+  %dt
+    = field_label(User, :postcode)
+  %dd
+    = @user.postcode
+  %dt
+    = field_label(User, :country)
+  %dd
+    = @user.country
+  %dt
+    = field_label(User, :hobbies)
+  %dd
+    = @user.hobbies
+  %dt
+    = field_label(User, :email)
+  %dd
+    = @user.email
+  %dt
+    = field_label(User, :gtalk)
+  %dd
+    = @user.gtalk
+  %dt
+    = field_label(User, :skype)
+  %dd
+    = @user.skype
+  %dt
+    = field_label(User, :website)
+  %dd 
+    = link_to(@user.website, @user.website) unless @user.website.blank?
