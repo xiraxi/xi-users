@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     config.maintain_sessions = false
   end
 
+  has_friendly_id :complete_name, :use_slug => true, :approximate_ascii => true
+
   attr_accessible :name, :surname, :birth_date, :gender, :city, :postcode,
                   :country, :hobbies, :gtalk, :skype, :website, :about,
                   :password, :password_confirmation, :current_password, :terms_of_use
@@ -43,7 +45,7 @@ class User < ActiveRecord::Base
   end
 
   def complete_name
-    [self.name, self.surname].join(" ")
+    [name, surname].join(" ")
   end
 
   def confirmed?
