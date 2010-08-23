@@ -1,5 +1,6 @@
 
 en:
+
   account_settings:
     sections:
       main_data: Main data
@@ -86,6 +87,16 @@ When su publish your content on this webspace, the user accepts the following cl
         name: Name
         surname: Surname
         terms_of_use: "I have read the terms and I accept them" 
+        photo: Photo
+        birth_date: Birth date
+        gender: Gender
+        city: City
+        postcode: Postcode
+        country: Country
+        hobbies: Hobbies
+        gtalk: Gtalk
+        skype: Skype
+        website: Website
 
     errors:
       models:
