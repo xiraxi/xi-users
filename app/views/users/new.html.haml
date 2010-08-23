@@ -24,12 +24,12 @@
       %li
         = form.label :surname
         = form.text_field :surname   
-    %fieldset
-      %legend 
-        = t("users.new.form.terms_of_use.title")
-      %div.terms_of_use
-        %p
-          = t("users.new.form.terms_of_use.content")
+  %fieldset
+    %legend 
+      = t("users.new.form.terms_of_use.title")
+    %div.terms_of_use
+      %p
+        = t("users.new.form.terms_of_use.content")
     = form.check_box :terms_of_use
     = form.label :terms_of_use
     = buttons_bar do
@@ -45,5 +45,3 @@
         = t("users.new.form.registration_help.content1")
       %p.important
         = t("users.new.form.registration_help.content2")
-      %p.important
-        = t("users.new.form.registration_help.content3")
