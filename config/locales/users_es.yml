@@ -52,7 +52,7 @@ es:
 
     profile:
       page_title: Perfil de usuario
-      title: "%Perfil de {username}"
+      title: "Perfil de %{username}"
       confirmed_at: "Registrado el %{date}"
       personal_data: Información personal
       own:
