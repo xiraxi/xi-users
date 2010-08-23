@@ -10,8 +10,7 @@ class UsersController < ApplicationController
       @user = User.new(attributes)
       @user.email = attributes[:email]
       if verify_recaptcha(:private_key => Rails.application.config.xi_users.recaptcha.private_key, :model => @user) and @user.save
-        flash[:notice] = I18n.t("users.create.success")
-        redirect_to login_path
+        render :create_success
       else
         @validated_attributes = params[:validated_attributes]
         render :action => "recaptcha"

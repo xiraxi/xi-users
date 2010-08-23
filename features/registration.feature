@@ -77,7 +77,7 @@ Feature: Registration in the web
         And I check "I have read the terms and I accept them"
         And I submit the form
         Then I force the reCaptcha to be valid
-        Then the flash box contains "An email was sent to confirm your address."
+        Then the page contains "An email was sent to confirm your address."
         And an email was sent with subject: "Account validation"
 
     Scenario: When anonymous user confirms the signup, the account can be used
