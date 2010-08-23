@@ -88,6 +88,7 @@ When su publish your content on this webspace, the user accepts the following cl
         password_confirmation: Password confirmation
         name: Name
         surname: Surname
+        about: About
         terms_of_use: "I have read the terms and I accept them" 
         photo: Photo
         birth_date: Birth date

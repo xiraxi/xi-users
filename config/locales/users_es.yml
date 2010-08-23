@@ -87,6 +87,7 @@ es:
         password_confirmation: Confirmar contraseña
         name: Nombre
         surname: Apellidos
+        about: "Descripción"
         terms_of_use: "He leído y acepto las condiciones de uso" 
         photo: Foto
         birth_date: Fecha de nacimiento 

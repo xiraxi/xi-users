@@ -28,8 +28,7 @@
     = form.date_select :birth_date, :start_year => 1900, :end_year => Date.today.year
 
   %fieldset
-    %legend
-      = t "account_settings.sections.birth_date"
+    %legend= User.human_attribute_name "gender"
     %ul
       %li
         = form.radio_button :gender, User::Gender::Male
