@@ -60,6 +60,8 @@ When su publish your content on this webspace, the user accepts the following cl
         title: My profile
       actions:
         change_photo: Change photo
+      manage:
+        title: Manage profile
 
     change_password:
       title: "Change password"

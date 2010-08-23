@@ -65,3 +65,13 @@
     = field_label(User, :website)
   %dd 
     = link_to(@user.website, @user.website) unless @user.website.blank?
+
+
+- content_for :secondary_bar do
+  - if @user == current_user
+    .box.manage_box
+      %h2= t("users.profile.manage.title")
+        .content
+          .user-manage
+            %ul
+              %li= link_to(t("users.profile.personal_data"), account_settings_path)

@@ -59,6 +59,8 @@ es:
         title: Mi perfil
       actions:
         change_photo: Cambiar foto
+      manage:
+        title: Gestión perfil
 
     change_password:
       title: "Cambiar contraseña"
