@@ -7,6 +7,7 @@ en:
       form:
         title: Login
         forgot_password: "Did you forget your password?"
+        submit: Log in
 
   account_settings:
     title: Account settings

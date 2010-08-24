@@ -1,0 +1,30 @@
+
+= form_for :user_session, :html => { :id => "login-form" }, :url => user_sessions_path do |form|
+  = error_messages_for @user_session
+
+  - fields = capture do
+    %ul
+      %li
+        = form.label :email, t("activerecord.attributes.user_session.email")
+        = form.text_field :email
+      %li
+        = form.label :password, t("activerecord.attributes.user_session.password")
+        = form.password_field :password
+
+    %div.login-endless
+      = form.check_box :remember_me
+      = form.label :remember_me, t("activerecord.attributes.user_session.remember_me")
+
+    %div.forgot-password
+      = link_to t("session.login.form.forgot_password"), request_reset_password_path
+
+    = buttons_bar do
+      = button_ok :label => t("session.login.form.submit")
+
+  - if fieldset_wrapper
+    %fieldset
+      %legend
+        = t("session.login.form.title")
+      = fields
+  - else
+    = fields

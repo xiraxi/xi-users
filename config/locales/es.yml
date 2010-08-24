@@ -7,6 +7,7 @@ es:
       form:
         title: Acceso
         forgot_password: "¿Olvidaste tu contraseña?"
+        submit: Entrar
 
   account_settings:
     title: Configuración de la cuenta

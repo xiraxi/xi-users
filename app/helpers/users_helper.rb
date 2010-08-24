@@ -23,4 +23,8 @@ module UsersHelper
       link_to(html_img, link || user_path(user), options[:link_opts])
     end 
   end
+
+  def login_form(options = {})
+    render :partial => "user_sessions/login_form", :locals => { :fieldset_wrapper => true }.merge!(options)
+  end
 end
