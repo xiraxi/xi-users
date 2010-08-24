@@ -34,3 +34,10 @@ en:
         email: Email
         password: Password
         remember_me: "Remember me on this computer"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email_invalid: "is not a valid email account"
+
