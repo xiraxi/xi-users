@@ -105,6 +105,7 @@ es:
         gtalk: Gtalk
         skype: Skype
         website: Web
+        recaptcha_challenge_field: Campo de comprobación recaptcha.
 
     errors:
       models:

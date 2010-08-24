@@ -100,6 +100,7 @@ When su publish your content on this webspace, the user accepts the following cl
         gtalk: Gtalk
         skype: Skype
         website: Website
+        recaptcha_challenge_field: Recaptcha challenge field.
 
     errors:
       models:

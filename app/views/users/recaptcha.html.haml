@@ -8,10 +8,10 @@
     = t flash[:recaptcha_error], :scope => "recaptcha.errors"
 
 = form_for :user, :html => {:id => "recaptcha_form"} do |form|
-  %div.fieldset
-    %div.legend
+  %fieldset
+    %legend
       = t("users.recaptcha.form.title")
-    = label_tag :recaptcha_challenge_field
+    = form.label :recaptcha_challenge_field
     = t("users.recaptcha.form.help")
     %script{:type => "text/javascript", :src => "http://api.recaptcha.net/challenge?k=#{Rails.application.config.xi_users.recaptcha.public_key}&error="}
     %noscript
