@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
     config.maintain_sessions = false
   end
 
+  validators_on(:email).detect {|v| ActiveModel::Validations::FormatValidator === v }.options[:message] = :email_invalid
+
   has_friendly_id :complete_name, :use_slug => true, :approximate_ascii => true
   has_attached_file :photo, :styles => {:thumb => "100x100>" }
 

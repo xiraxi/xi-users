@@ -20,8 +20,7 @@
       = form.label :remember_me, t("activerecord.attributes.user_session.remember_me")
 
     %div.forgot-password
-      %a{:href => "#"}
-        = t("session.login.form.forgot_password")
+      = link_to t("session.login.form.forgot_password"), request_reset_password_path
 
     = buttons_bar do
       = button_ok
