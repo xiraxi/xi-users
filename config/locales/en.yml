@@ -42,3 +42,5 @@ en:
             email:
               email_invalid: "is not a valid email account"
 
+  users:
+    menu_item: People

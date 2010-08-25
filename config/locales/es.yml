@@ -41,3 +41,6 @@ es:
           attributes:
             email:
               email_invalid: "no es una cuenta de correo válida"
+
+  users:
+    menu_item: Gente
