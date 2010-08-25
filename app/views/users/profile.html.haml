@@ -14,8 +14,6 @@
         = field_label(User, :surname)
       %dd
         = @user.surname
-      %dt
-        = field_label(User, :photo)
     %div.signup_date
       = t("users.profile.confirmed_at", :date => l(@user.confirmed_at, :format => :long))
     %div.about

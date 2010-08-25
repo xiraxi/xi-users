@@ -65,6 +65,7 @@ form#signup_form {
   }
 }
 
+/*
 .sidebar {
   .login {
     padding: $box-margin;
@@ -118,6 +119,23 @@ form#signup_form {
       margin-top: 1em;
       text-align: center;
       padding: 4px 0 3px;
+    }
+  }
+}
+*/
+
+.login_box {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  .login-endless {
+    input#user_session_remember_me {
+      display: inline;
+      width: auto;
+    }
+    label {
+      display: inline;
     }
   }
 }
