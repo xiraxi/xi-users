@@ -67,6 +67,9 @@ es:
         change_photo: Cambiar foto
       manage:
         title: Gestión perfil
+      profile-box:
+        title: Mi Perfil
+
 
     change_password:
       title: "Cambiar contraseña"

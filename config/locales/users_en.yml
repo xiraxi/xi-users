@@ -62,6 +62,8 @@ When su publish your content on this webspace, the user accepts the following cl
         change_photo: Change photo
       manage:
         title: Manage profile
+      profile-box:
+        title: My Profile
 
     change_password:
       title: "Change password"
