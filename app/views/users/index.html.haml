@@ -12,7 +12,7 @@
       %div.profile_intro
         %div.about
           %p 
-            = user.about
+            = truncate(user.about, :length => 200)
 
 
 / TODO add pagination
