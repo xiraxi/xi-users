@@ -1,6 +1,14 @@
 
 Feature: Users lists
 
+  @list @pagination
+  Scenario: index page shows 10 users per page
+    Given an anonymous session
+    And 15 users exist
+    When I go to the users page
+    Then I see 10 "profile" boxes
+    And I see the "pagination" box
+
   @last_registereds @last_accessed
   Scenario Outline: Default profiles order is based on timestamp creation 
     Given an anonymous session

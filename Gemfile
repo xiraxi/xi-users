@@ -29,6 +29,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 gem 'authlogic', :git => 'git://github.com/scrum8/authlogic.git'
+gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
 #gem "xiraxi-core", :path => "../xiraxi-core/"
 gemspec

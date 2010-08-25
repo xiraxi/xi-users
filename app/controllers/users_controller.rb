@@ -85,7 +85,7 @@ class UsersController < ApplicationController
         dataset.order("confirmed_at DESC")
     end
 
-    @users = dataset.all
+    @users = dataset.paginate(:page => params[:page], :per_page => 10)
   end
 
   def validate_email
