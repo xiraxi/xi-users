@@ -1,0 +1,23 @@
+es:
+
+  authlogic:
+    error_messages: 
+      login_blank: "no puede estar vacío" 
+      login_not_found: "no es válido"
+      login_invalid: "debe usar sólo letras, números, espacios y .-_@"
+      consecutive_failed_logins_limit_exceeded: "Excedido el límite de intentos consecutivos, cuenta deshabilitada."
+      email_invalid: "debe ser una dirección de email"
+      password_blank: "no puede estar vacío"
+      password_invalid: "no es válido"
+      not_active: "Tu cuenta no está activa"
+      not_confirmed: "Tu cuenta no está confirmada"
+      not_approved: "Tu cuenta no está aprobada"
+      no_authentication_details: "No ha inidicado ningún detalle para la autenticación."
+    models:
+      user_session: "Sesión" 
+    attributes:
+      user_session: 
+        login: Login
+        email: Email
+        password: Contraseña
+        remember_me: Recordarme
