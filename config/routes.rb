@@ -16,7 +16,12 @@ Rails.application.class.routes.draw do
   match 'users/recent' => 'users#index', :order => "last_login", :as => "recent_users"
   match 'users/connected' => 'users#index', :order => "connected", :as => "connected_users"
 
-  resources :users
+  resources :users do
+    member do
+      get :confirm_remove
+    end
+  end
+
   resources :user_sessions
   resources :administrators
 

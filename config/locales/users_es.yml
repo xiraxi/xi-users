@@ -69,6 +69,11 @@ es:
       profile-box:
         title: Mi Perfil
 
+      admin:
+        title: Administrar
+        confirm: "Va a eliminar a %{user}. Esta acción no se puede deshacer. ¿Está seguro de continuar?"
+        remove: Eliminar este usuario
+        success_remove: El usuario se eliminó de la web
 
     change_password:
       title: "Cambiar contraseña"

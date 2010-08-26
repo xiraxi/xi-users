@@ -39,14 +39,14 @@ class User < ActiveRecord::Base
   end
 
   scope :admins, where(:role => Role::Admin)
-  scope :confirmed, where("confirmed_at IS NOT NULL")
+  scope :confirmed, where("confirmed_at IS NOT NULL AND deleted_at IS NULL")
 
   def admin?
-    role == Role::Admin
+    confirmed? && role == Role::Admin
   end
 
   def company?
-    role == Role::Company
+    confirmed? && role == Role::Company
   end
 
   def complete_name
@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def confirmed?
-    !!confirmed_at
+    confirmed_at && deleted_at.nil?
   end
 
   before_create :assign_perishable_token

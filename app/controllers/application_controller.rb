@@ -1,16 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :session_admin?
 
   def current_user_session
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
+    return @_current_user_session if defined?(@_current_user_session)
+    @_current_user_session = UserSession.find
   end
 
   def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.user
+    return @_current_user if defined?(@_current_user)
+    @_current_user = current_user_session && current_user_session.user
   end
 
 
@@ -32,6 +32,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def session_admin?
+    current_user and current_user.admin?
+  end
 
   class <<self
     def only_admins(*actions)

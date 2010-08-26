@@ -65,6 +65,12 @@ When su publish your content on this webspace, the user accepts the following cl
       profile-box:
         title: My Profile
 
+      admin:
+        title: Admin
+        confirm: "You are going to remove %{user}. This action can not be undone. Are you sure to continue?"
+        remove: Remove this user
+        success_remove: The user was removed
+
     change_password:
       title: "Change password"
       section:

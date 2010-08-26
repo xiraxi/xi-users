@@ -1,0 +1,10 @@
+
+%h2
+  = t("users.profile.admin.remove")
+
+= raw t("users.profile.admin.confirm", :user => link_to_profile(@user))
+
+= form_for @user, :html => { :method => :delete } do
+  = buttons_bar do
+    = button_ok
+    = button_cancel user_path(@user)

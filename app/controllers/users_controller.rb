@@ -171,4 +171,17 @@ class UsersController < ApplicationController
     render :template => "users/profile"
   end
 
+  only_admins :confirm_destroy, :destroy
+  def destroy
+    user = User.find(params[:id]) or return not_found
+    user.deleted_at = Time.now
+    user.save!
+    flash[:notice] = t("users.profile.admin.success_remove")
+    redirect_to users_path
+  end
+
+  def confirm_remove
+    @user = User.find(params[:id]) or return not_found
+  end
+
 end

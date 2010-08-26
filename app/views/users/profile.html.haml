@@ -86,3 +86,15 @@
             %li= link_to(t("users.profile.personal_data"), account_settings_path)
             %li= link_to(t("users.change_password.title"), change_password_path)
             %li= link_to(t("users.change_email.title"), account_email_path)
+
+  - if session_admin?
+    .box.manage_box
+      %h2
+        = t("users.profile.admin.title")
+
+      .content
+        .user-manage
+          %ul
+            %li
+              = link_to t("users.profile.admin.remove"), confirm_remove_user_path(@user)
+
