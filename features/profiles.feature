@@ -23,7 +23,7 @@ Feature: User profiles
         When I go to the users page
         And I click on "John Smith"
         Then the current page is a "show" action
-        And the page contains the "manage-box" box
+        And the page contains the "manage box" box
 
     Scenario: Logged user can not manage others profile
         Given a user exists with email: "john@example.com", name: "John Smith"
