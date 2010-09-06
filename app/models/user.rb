@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   acts_as_authentic do |config|
     config.disable_perishable_token_maintenance = true
+    config.perishable_token_valid_for = 2.days.to_i
     config.maintain_sessions = false
   end
 
