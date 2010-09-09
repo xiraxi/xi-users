@@ -16,4 +16,6 @@
     = link_to t("admin_index.exit"), root_path, :class => "exit"
     = render_admin_menu
     #admin_content
+      = flash_box :error
+      = flash_box :notice
       = yield
