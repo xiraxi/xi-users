@@ -29,6 +29,12 @@ es:
       label: "Email"
       create: "Conceder rol administrador."
 
+  validation_pending_users:
+    title: Gestión de usuarios pendientes de validar
+    validate: 
+      title: Validar
+      confirm: "¿Está seguro de validar a %{email}?"
+
   activerecord:
     attributes:
       user_session:

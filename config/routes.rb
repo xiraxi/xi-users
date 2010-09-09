@@ -27,4 +27,13 @@ Rails.application.class.routes.draw do
   resources :user_sessions
   resources :administrators
 
+  scope "admin" do
+    namespace :user do
+      resources :validation_pending_users do
+        member do
+          post :validate
+        end
+      end
+    end
+  end
 end

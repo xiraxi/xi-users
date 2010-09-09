@@ -29,6 +29,12 @@ en:
       label: "Email"
       create: "Grant admin role."
 
+  validation_pending_users:
+    title: Validation pending users management
+    validate: 
+      title: Validate
+      confirm: "Are you sure to validate %{email}?"
+
   activerecord:
     attributes:
       user_session:

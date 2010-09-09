@@ -113,6 +113,7 @@ es:
         skype: Skype
         website: Web
         recaptcha_challenge_field: Campo de comprobación recaptcha.
+        created_at: Fecha alta
 
     errors:
       models:

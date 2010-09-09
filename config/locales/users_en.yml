@@ -109,6 +109,7 @@ When su publish your content on this webspace, the user accepts the following cl
         skype: Skype
         website: Website
         recaptcha_challenge_field: Recaptcha challenge field.
+        created_at: Registration date
 
     errors:
       models:
