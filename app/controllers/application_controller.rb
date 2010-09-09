@@ -61,6 +61,12 @@ class ApplicationController < ActionController::Base
     def only_logged(*actions)
       _register_validated_action :logged, actions
     end
+
+    def admin_section
+      layout "admin"
+      helper AdminSectionsHelper
+      only_admins
+    end
   end
 
 end

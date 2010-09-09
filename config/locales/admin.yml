@@ -3,6 +3,10 @@ en:
   admin_index:
     title: Admin manager
 
+    exit: Return to web
+
 es:
   admin_index:
     title: Gestor de administración
+
+    exit: Volver a la web

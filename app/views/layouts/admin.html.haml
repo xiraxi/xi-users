@@ -1,0 +1,19 @@
+!!! Strict
+
+%html{:lang => I18n.locale, :xmlns =>"http://www.w3.org/1999/xhtml" }
+  %head
+    %title
+      = Rails.application.config.community.web_name
+      = content_for :page_title
+    = stylesheet_link_tag "application.css"
+    = javascript_include_tag "jquery", "application"
+    = content_for :header
+
+  %body{:class => "admin action-#{controller.action_name} cont-#{params[:controller]}" }
+    %h1
+      = Rails.application.config.community.web_name
+
+    = link_to t("admin_index.exit"), root_path, :class => "exit"
+    = render_admin_menu
+    #admin_content
+      = yield

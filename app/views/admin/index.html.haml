@@ -1,13 +1,5 @@
 
 .admin_index
 
-  %h1
+  %h2
     = t "admin_index.title"
-
-  - @route_groups.each_pair do |group_name, items|
-    %h2
-      = t "admin_index.groups.#{group_name}"
-
-    .index
-      - items.each do |item|
-        = link_to t("admin_index.items.#{item.name}"), send(item.name + "_path")

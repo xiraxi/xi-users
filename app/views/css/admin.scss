@@ -1,0 +1,28 @@
+
+body.admin {
+
+  & > h1 {
+    border: 0;
+    font-size: 150%;
+    text-align: right;
+  }
+
+  a.exit {
+    font-size: 120%;
+    display: block;
+    position: relative;
+    top: -2em;
+  }
+
+  div.admin_menu {
+    display: inline-block;
+    width: 10%;
+    margin-right: 2%;
+  }
+
+  #admin_content {
+    display: inline-block;
+    width: 85%;
+  }
+
+}
