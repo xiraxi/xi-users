@@ -13,44 +13,54 @@ class ApplicationController < ActionController::Base
     @_current_user = current_user_session && current_user_session.user
   end
 
-
-  def only_admins_filter
-    if current_user.nil?
-      redirect_to login_path
-      return
-    end
-
-    if not current_user.admin?
-      forbidden
-    end
-  end
-
-  def only_logged_filter(*actions)
-    if current_user.nil?
-      redirect_to login_path
-      return
-    end
-  end
-
   def session_admin?
     current_user and current_user.admin?
   end
 
-  class <<self
-    def only_admins(*actions)
-      if actions.empty?
-        before_filter :only_admins_filter
-      else
-        before_filter :only_admins_filter, :only => actions
+  # Security logic
+
+  class_inheritable_hash :_actions_to_be_validated
+
+  def _validate_user_by_action
+    return if _actions_to_be_validated.blank?
+
+    rule = _actions_to_be_validated["*"] || _actions_to_be_validated[action_name]
+    return if rule.blank?
+
+    if [:admin, :logged].include?(rule)
+      if current_user.nil?
+        redirect_to login_path
+        return
+      end
+
+      if rule == :admin
+        if not current_user.admin?
+          forbidden
+        end
       end
     end
 
-    def only_logged(*actions)
-      if actions.empty?
-        before_filter :only_logged_filter
-      else
-        before_filter :only_logged_filter, :only => actions
+  end
+
+  before_filter :_validate_user_by_action
+
+  class <<self
+    def _register_validated_action(rule, actions)
+      self._actions_to_be_validated ||= {}
+      actions = ["*"] if actions.empty?
+
+      actions.each do |action|
+        _actions_to_be_validated[action.to_s] = rule
       end
     end
+
+    def only_admins(*actions)
+      _register_validated_action :admin, actions
+    end
+
+    def only_logged(*actions)
+      _register_validated_action :logged, actions
+    end
   end
+
 end

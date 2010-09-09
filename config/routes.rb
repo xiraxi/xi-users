@@ -22,6 +22,8 @@ Rails.application.class.routes.draw do
     end
   end
 
+  match '/admin/everything' => "admin#index", :as => "admin_index"
+
   resources :user_sessions
   resources :administrators
 
