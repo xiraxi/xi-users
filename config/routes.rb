@@ -36,4 +36,8 @@ Rails.application.class.routes.draw do
       end
     end
   end
+
+  if Rails.env.test?
+    match "root" => "users#index"
+  end
 end
