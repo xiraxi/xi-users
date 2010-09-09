@@ -15,12 +15,14 @@ body.admin {
   }
 
   div.admin_menu {
+    vertical-align: top;
     display: inline-block;
     width: 10%;
     margin-right: 2%;
   }
 
   #admin_content {
+    vertical-align: top;
     display: inline-block;
     width: 85%;
   }
