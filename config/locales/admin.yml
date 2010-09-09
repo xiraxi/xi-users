@@ -5,8 +5,20 @@ en:
 
     exit: Return to web
 
+    groups:
+      user: Users
+    items:
+      user_validation_pending_users: Activation pending
+      user_administrators: Administrators
+
 es:
   admin_index:
     title: Gestor de administración
 
     exit: Volver a la web
+
+    groups:
+      user: Usuarios
+    items:
+      user_validation_pending_users: Pendientes de validación
+      user_administrators: Administradores

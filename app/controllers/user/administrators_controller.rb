@@ -1,6 +1,6 @@
-class AdministratorsController < ApplicationController
+class User::AdministratorsController < ApplicationController
 
-  only_admins
+  admin_section
 
   def index
     @admins = User.admins
@@ -16,7 +16,7 @@ class AdministratorsController < ApplicationController
       flash[:error] = t("administrators.unknown_admin")
     end
 
-    redirect_to administrators_path
+    redirect_to user_administrators_path
   end
 
   def create
@@ -29,7 +29,7 @@ class AdministratorsController < ApplicationController
       flash[:error] = t("administrators.unknown_admin")
     end
 
-    redirect_to administrators_path
+    redirect_to user_administrators_path
   end
 
 end

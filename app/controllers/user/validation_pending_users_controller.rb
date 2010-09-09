@@ -1,6 +1,6 @@
 class User::ValidationPendingUsersController < ApplicationController
 
-  only_admins
+  admin_section
 
   include ::BasicCrud::Controller
 

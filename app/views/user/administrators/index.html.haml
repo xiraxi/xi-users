@@ -4,7 +4,7 @@
   = t("administrators.title")
 
 #new-admin
-  = form_tag administrators_path do
+  = form_tag user_administrators_path do
     %label{:for => "new_admin_email"}
       = t "administrators.new.label"
     = text_field_tag "new_admin_email"
@@ -17,6 +17,6 @@
     %li
       = user.name
       = user.surname
-      = form_for user, :url => administrator_path(user), :html => { :method => :delete } do
+      = form_for user, :url => user_administrator_path(user), :html => { :method => :delete } do
         %button.ok-button{:type => "submit"}
           = t("administrators.remove_user", :email => user.email)

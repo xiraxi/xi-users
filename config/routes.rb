@@ -25,10 +25,10 @@ Rails.application.class.routes.draw do
   match '/admin/everything' => "admin#index", :as => "admin_index"
 
   resources :user_sessions
-  resources :administrators
 
   scope "admin" do
     namespace :user do
+      resources :administrators
       resources :validation_pending_users do
         member do
           post :validate
