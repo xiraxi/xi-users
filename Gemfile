@@ -34,6 +34,7 @@ gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branc
 #gem "xiraxi-core", :path => "../xiraxi-core/"
 gemspec
 gemspec :path => "../xiraxi-core/"
+gemspec :path => "../basic-crud/"
 
 group :development, :test do
   gem "rspec"
