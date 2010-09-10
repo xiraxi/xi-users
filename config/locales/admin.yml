@@ -1,7 +1,6 @@
 
 en:
   admin_index:
-    link: Admin
     title: Admin manager
 
     exit: Return to web
@@ -14,7 +13,6 @@ en:
 
 es:
   admin_index:
-    link: Admin
     title: Gestor de administración
 
     exit: Volver a la web
