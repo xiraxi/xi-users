@@ -10,10 +10,11 @@
     = content_for :header
 
   %body{:class => "admin action-#{controller.action_name} cont-#{params[:controller]}" }
-    %h1
-      = Rails.application.config.community.web_name
+    #header
+      %h1
+        = Rails.application.config.community.web_name
 
-    = link_to t("admin_index.exit"), root_path, :class => "exit"
+      = link_to t("admin_index.exit"), root_path, :class => "exit"
     = render_admin_menu
     #admin_content
       = flash_box :error
