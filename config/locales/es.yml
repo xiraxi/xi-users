@@ -50,3 +50,8 @@ es:
 
   users:
     menu_item: Gente
+
+  search:
+    group:
+      user:
+        title: Gente

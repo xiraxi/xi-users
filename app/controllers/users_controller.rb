@@ -73,6 +73,7 @@ class UsersController < ApplicationController
     end
   end
 
+  SearchWithWords = Rails.application.config.xi_users.words_search
   def index
     dataset = User.confirmed
 
@@ -83,6 +84,10 @@ class UsersController < ApplicationController
         dataset.order("current_login_at DESC").where(["current_login_at > ?", (params[:within] || 30).to_i.minutes.ago])
       else
         dataset.order("confirmed_at DESC")
+    end
+
+    if SearchWithWords and params[:q]
+      dataset = dataset.words_search(params[:q])
     end
 
     @users = dataset.paginate(:page => params[:page], :per_page => 10)

@@ -50,3 +50,8 @@ en:
 
   users:
     menu_item: People
+
+  search:
+    group:
+      user:
+        title: People

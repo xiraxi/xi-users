@@ -65,5 +65,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  has_text_search :name, :surname, :about, :city, :country, :hobbies, :gtalk, :skype, :website
+
+  alias_method :search_label, :complete_name
 
 end

@@ -17,4 +17,6 @@ class XiUsers < Rails::Engine
   config.xi_users.icons.female = ActiveSupport::OrderedOptions.new
   config.xi_users.icons.female.big = "icons/female_big_icon.gif"
   config.xi_users.icons.female.thumb = "icons/female_thumb_icon.gif"
+
+  config.xi_users.words_search = false
 end
