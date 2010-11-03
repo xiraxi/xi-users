@@ -1,3 +1,3 @@
-<%= t "notifier.change_email.body",
+<%= t "user.notifier.change_email.body",
     :web_name => Rails.application.config.community.web_name,
-    :validate => validate_email_change_path(@change_email_request.key) %>
+    :validate => validate_email_change_url(@change_email_request.key) %>
