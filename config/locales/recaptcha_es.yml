@@ -1,11 +1,12 @@
 
 es:
+  recaptcha:
+    errors:
+      "incorrect-captcha-sol": "La verificación reCaptcha no está bien escrita."
+      "recaptcha-not-reachable": "reCaptcha no está disponible."
+
   users:
     recaptcha:
-      errors:
-        "incorrect-captcha-sol": "La verificación reCaptcha no está bien escrita."
-        "recaptcha-not-reachable": "reCaptcha no está disponible."
-
       title: "Validación del nuevo usuario"
       form:
         title: "Validación del registro de usuario"
